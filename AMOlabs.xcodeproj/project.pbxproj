@@ -9,21 +9,27 @@
 /* Begin PBXBuildFile section */
 		5D8BC81A23FAB68E005E8235 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8BC81923FAB68E005E8235 /* AppDelegate.swift */; };
 		5D8BC81C23FAB68E005E8235 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8BC81B23FAB68E005E8235 /* SceneDelegate.swift */; };
-		5D8BC81E23FAB68E005E8235 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8BC81D23FAB68E005E8235 /* ViewController.swift */; };
+		5D8BC81E23FAB68E005E8235 /* Lab1Task1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8BC81D23FAB68E005E8235 /* Lab1Task1ViewController.swift */; };
 		5D8BC82123FAB68E005E8235 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D8BC81F23FAB68E005E8235 /* Main.storyboard */; };
 		5D8BC82323FAB695005E8235 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D8BC82223FAB695005E8235 /* Assets.xcassets */; };
 		5D8BC82623FAB695005E8235 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D8BC82423FAB695005E8235 /* LaunchScreen.storyboard */; };
+		5D95AA3D23FEAC8A00DC716C /* Lab1Task2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D95AA3C23FEAC8A00DC716C /* Lab1Task2ViewController.swift */; };
+		5D95AA3F23FFDB7F00DC716C /* Lab1Task3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D95AA3E23FFDB7F00DC716C /* Lab1Task3ViewController.swift */; };
+		5D95AA412401DA9600DC716C /* Lab2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D95AA402401DA9600DC716C /* Lab2ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5D8BC81623FAB68E005E8235 /* AMOlabs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AMOlabs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D8BC81923FAB68E005E8235 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D8BC81B23FAB68E005E8235 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5D8BC81D23FAB68E005E8235 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5D8BC81D23FAB68E005E8235 /* Lab1Task1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab1Task1ViewController.swift; sourceTree = "<group>"; };
 		5D8BC82023FAB68E005E8235 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5D8BC82223FAB695005E8235 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5D8BC82523FAB695005E8235 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5D8BC82723FAB695005E8235 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5D95AA3C23FEAC8A00DC716C /* Lab1Task2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab1Task2ViewController.swift; sourceTree = "<group>"; };
+		5D95AA3E23FFDB7F00DC716C /* Lab1Task3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab1Task3ViewController.swift; sourceTree = "<group>"; };
+		5D95AA402401DA9600DC716C /* Lab2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab2ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +64,10 @@
 			children = (
 				5D8BC81923FAB68E005E8235 /* AppDelegate.swift */,
 				5D8BC81B23FAB68E005E8235 /* SceneDelegate.swift */,
-				5D8BC81D23FAB68E005E8235 /* ViewController.swift */,
+				5D8BC81D23FAB68E005E8235 /* Lab1Task1ViewController.swift */,
+				5D95AA3C23FEAC8A00DC716C /* Lab1Task2ViewController.swift */,
+				5D95AA3E23FFDB7F00DC716C /* Lab1Task3ViewController.swift */,
+				5D95AA402401DA9600DC716C /* Lab2ViewController.swift */,
 				5D8BC81F23FAB68E005E8235 /* Main.storyboard */,
 				5D8BC82223FAB695005E8235 /* Assets.xcassets */,
 				5D8BC82423FAB695005E8235 /* LaunchScreen.storyboard */,
@@ -138,7 +147,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D8BC81E23FAB68E005E8235 /* ViewController.swift in Sources */,
+				5D95AA3D23FEAC8A00DC716C /* Lab1Task2ViewController.swift in Sources */,
+				5D95AA3F23FFDB7F00DC716C /* Lab1Task3ViewController.swift in Sources */,
+				5D8BC81E23FAB68E005E8235 /* Lab1Task1ViewController.swift in Sources */,
+				5D95AA412401DA9600DC716C /* Lab2ViewController.swift in Sources */,
 				5D8BC81A23FAB68E005E8235 /* AppDelegate.swift in Sources */,
 				5D8BC81C23FAB68E005E8235 /* SceneDelegate.swift in Sources */,
 			);
@@ -294,7 +306,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Holovash.AMOlabs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -312,7 +324,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Holovash.AMOlabs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
