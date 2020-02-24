@@ -74,7 +74,15 @@ class Lab1Task1ViewController: UIViewController {
         resultLabel.text = String(result)
         
     }
+    @IBAction func didPressDiagram(_ sender: UIButton) {
+        let image = UIImage(named: "DiagramTask1")
+        guard let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ImageViewController") as? ImageViewController else { return }
+           
+           vc.image = image
+           present(vc, animated: true, completion: nil)
+    }
     
+   
 
 }
 

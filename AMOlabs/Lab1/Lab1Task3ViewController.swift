@@ -173,12 +173,16 @@ class Lab1Task3ViewController: UIViewController {
         }
     }
     
-
-}
-
-extension Double {
-    func rounded(digits: Int) -> Double {
-        let multiplier = pow(10.0, Double(digits))
-        return (self * multiplier).rounded() / multiplier
+    
+    @IBAction func didPressDiagram(_ sender: UIButton) {
+        let image = UIImage(named: "DiagramTask3")
+        guard let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ImageViewController") as? ImageViewController else { return }
+           
+           vc.image = image
+           present(vc, animated: true, completion: nil)
     }
+    
+
 }
+
+

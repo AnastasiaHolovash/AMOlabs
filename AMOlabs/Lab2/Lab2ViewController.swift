@@ -36,22 +36,29 @@ class Lab2ViewController: UIViewController {
     
     @objc func keyboardWillChange(notification: Notification){
            
-           if notification.name.rawValue == "UIKeyboardWillShowNotification"{
-               UIView.animate(withDuration: 2) {
-                   self.resultButton.transform = CGAffineTransform(translationX: 0, y: 0)
-               }
-           }else{
-               UIView.animate(withDuration: 2) {
-                   self.resultButton.transform = CGAffineTransform(translationX: 0, y: self.view.center.y)
-               }
-           }
-       }
+        if notification.name.rawValue == "UIKeyboardWillShowNotification"{
+            UIView.animate(withDuration: 2) {
+                self.resultButton.transform = CGAffineTransform(translationX: 0, y: 0)
+            }
+        } else {
+            UIView.animate(withDuration: 2) {
+                self.resultButton.transform = CGAffineTransform(translationX: 0, y: self.view.center.y)
+            }
+        }
+    }
        
-       deinit {
-           // Stop listening for keyboard show/hide events
-           NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-           NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-       }
+    deinit {
+        // Stop listening for keyboard show/hide events
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    func alert() -> UIAlertController {
+        let alert = UIAlertController(title: "", message: "Введіть ціле число більше за 0", preferredStyle: .alert)
+        let okBtn = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(okBtn)
+        return alert
+    }
     
     func hideKeybourd() {
         textFied.resignFirstResponder()
@@ -70,12 +77,24 @@ class Lab2ViewController: UIViewController {
             stringSortArray.append(j.rounded(digits: 3))
         }
         
-        
         timeLabel.text = "Час: "
-        enteredTextView.text = stringArray.description
-        resultTextView.text = stringSortArray.description
+        enteredTextView.text = "Початковий масив: " + stringArray.description
+        resultTextView.text = "Відсортований масив: " + stringSortArray.description
         
         hideKeybourd()
+    }
+    
+    func createArray(_ textFied: UITextField) -> [Double] {
+        let n = Int((textFied.text ?? "").replacingOccurrences(of: ",", with: ".")) ?? 0
+        var array: [Double] = []
+        if n == 0 {
+            present(alert(), animated: true, completion: nil)
+        } else {
+            for _ in 1...n {
+                array.append(Double.random(in: 1..<100))
+            }
+        }
+        return array
     }
     
     
@@ -83,30 +102,15 @@ class Lab2ViewController: UIViewController {
         switch segmentControl.selectedSegmentIndex {
         case 0:
             let array: [Double] = prepareArray(textField: textFied)
-//            var sortArray = array
-//            quicksortHoare(&sortArray, low: 0, high: sortArray.count - 1)
             showResult(array)
             
-        
         case 1:
             if textFied.text == "" {
                 resultTextView.text = ""
                 hideKeybourd()
-            
             } else {
-                let n = Int((textFied.text ?? "").replacingOccurrences(of: ",", with: ".")) ?? 0
-                
-                var array: [Double] = []
-                
-//                var stringArray: [Double] = []
-//                var stringSortArray: [Double] = []
-                
-                for _ in 1...n {
-                    array.append(Double.random(in: 1..<100))
-                }
-                
+                let array: [Double] = createArray(textFied)
                 showResult(array)
-
             }
 
         default:
@@ -117,30 +121,31 @@ class Lab2ViewController: UIViewController {
     
     func manually () {
         textFied.placeholder = "Введіть масив"
+        cleanText()
+    }
+    
+    
+    func cleanText() {
         textFied.text = ""
         enteredTextView.text = ""
         resultTextView.text = ""
+        timeLabel.text = ""
     }
+    
     
     @IBAction func didChangeSigment(_ sender: UISegmentedControl) {
         switch segmentControl.selectedSegmentIndex {
         case 0:
             manually()
-            
         case 1:
-            
-            textFied.placeholder = "Введіть число"
-            textFied.text = ""
-            enteredTextView.text = ""
-            resultTextView.text = ""
-            
+            textFied.placeholder = "Введіть кількість елементів"
+            cleanText()
         default:
             textFied.placeholder = ""
-            textFied.text = ""
-            enteredTextView.text = ""
-            resultTextView.text = ""
+            cleanText()
         }
     }
+    
     
     // MARK: Винести
     func prepareArray(textField: UITextField) -> [Double] {
@@ -179,10 +184,4 @@ class Lab2ViewController: UIViewController {
             quicksortHoare(&a, low: p + 1, high: high)
         }
     }
-
-//    var list = [ 8, 0, 3, 9, 2, 14, 10, 27, 1, 5, 8, -1, 26 ]
-//    quicksortHoare(&list, low: 0, high: list.count - 1)
-
-    
-
 }
