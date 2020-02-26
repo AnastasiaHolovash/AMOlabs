@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--AMO🤢-->
+        <!--AMO-->
         <scene sceneID="uoX-ha-OXN">
             <objects>
                 <tableViewController id="gQI-Mz-mZC" sceneMemberID="viewController">
@@ -158,7 +158,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="quaternaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.17999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="gWu-GA-axo" firstAttribute="centerY" secondItem="0BI-3u-iIh" secondAttribute="centerY" multiplier="0.5" id="7JO-XW-K07"/>
                                                 <constraint firstItem="FgK-kM-w3d" firstAttribute="leading" secondItem="0BI-3u-iIh" secondAttribute="leading" constant="16" id="PO7-kp-VEJ"/>
@@ -179,7 +179,7 @@
                             <outlet property="delegate" destination="gQI-Mz-mZC" id="Ot7-EK-5V5"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="AMO🤢" id="szG-fc-MyL"/>
+                    <navigationItem key="navigationItem" title="AMO" id="szG-fc-MyL"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A83-bY-UTd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -231,10 +231,13 @@
                                             <constraint firstItem="KfA-ik-O6S" firstAttribute="bottom" secondItem="UYa-dK-ya2" secondAttribute="bottom" constant="-15" id="tSp-Id-W6b"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введіть масив" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YFJ-sT-u8Q">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введіть масив" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="YFJ-sT-u8Q">
                                         <rect key="frame" x="0.0" y="69" width="375" height="48.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" returnKeyType="go" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="ukV-Tl-3L8" id="rVd-Di-6Ai"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5LM-mD-dVa">
                                         <rect key="frame" x="0.0" y="117.33333333333333" width="375" height="48.333333333333329"/>
@@ -308,7 +311,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Сортування Хоара" id="aBT-QR-iml">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="DGQ-eG-h5o">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="65K-KU-yKm">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="65K-KU-yKm">
                                 <rect key="frame" x="276" y="5.6666666666666679" width="83" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -372,7 +375,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qoL-6J-lRc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1245.5999999999999" y="854.92610837438428"/>
+            <point key="canvasLocation" x="902" y="867"/>
         </scene>
         <!--UIViewController-->
         <scene sceneID="cEq-Pw-lNu">

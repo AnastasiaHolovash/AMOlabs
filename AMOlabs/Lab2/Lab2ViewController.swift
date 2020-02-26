@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Lab2ViewController: UIViewController {
+class Lab2ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var textFied: UITextField!
     @IBOutlet weak var timeLabel: UILabel!
@@ -34,6 +34,27 @@ class Lab2ViewController: UIViewController {
 
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch segmentControl.selectedSegmentIndex {
+        case 0:
+            let array: [Double] = prepareArray(textField: textFied)
+            showResult(array)
+            
+        case 1:
+            if textFied.text == "" {
+                resultTextView.text = ""
+                hideKeybourd()
+            } else {
+                let array: [Double] = createArray(textFied)
+                showResult(array)
+            }
+
+        default:
+            resultTextView.text = nil
+        }
+        return true
+    }
+    
     @objc func keyboardWillChange(notification: Notification){
            
         if notification.name.rawValue == "UIKeyboardWillShowNotification"{
@@ -52,6 +73,7 @@ class Lab2ViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
+    
     
     func alert() -> UIAlertController {
         let alert = UIAlertController(title: "", message: "Введіть ціле число більше за 0", preferredStyle: .alert)
