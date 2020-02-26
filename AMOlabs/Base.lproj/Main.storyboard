@@ -264,29 +264,14 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="go"/>
                                             </textView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VqV-2c-LVg">
-                                                <rect key="frame" x="84.333333333333329" y="216.33333333333334" width="206.33333333333337" height="39"/>
-                                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                <state key="normal" title="Показати результат">
-                                                    <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="didPressResult:" destination="ukV-Tl-3L8" eventType="touchUpInside" id="Wj0-P4-fPz"/>
-                                                    <action selector="didPressResult:" destination="ajk-vT-1RP" eventType="touchUpInside" id="wtO-QE-cHb"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
-                                            <constraint firstItem="VqV-2c-LVg" firstAttribute="width" secondItem="lFs-Tc-v4L" secondAttribute="width" multiplier="0.55" id="0h4-M5-HX9"/>
                                             <constraint firstAttribute="bottom" secondItem="DYi-xz-igr" secondAttribute="bottom" constant="20" symbolic="YES" id="2Dj-M0-0Ti"/>
                                             <constraint firstItem="Wfg-7D-F1V" firstAttribute="height" secondItem="lFs-Tc-v4L" secondAttribute="height" multiplier="0.45" id="7aI-fX-21U"/>
                                             <constraint firstAttribute="trailing" secondItem="Wfg-7D-F1V" secondAttribute="trailing" constant="20" symbolic="YES" id="cde-Da-NaS"/>
-                                            <constraint firstItem="VqV-2c-LVg" firstAttribute="centerX" secondItem="lFs-Tc-v4L" secondAttribute="centerX" id="gQR-aB-AmW"/>
                                             <constraint firstItem="Wfg-7D-F1V" firstAttribute="leading" secondItem="lFs-Tc-v4L" secondAttribute="leading" constant="20" symbolic="YES" id="h7B-bl-2bE"/>
                                             <constraint firstItem="DYi-xz-igr" firstAttribute="leading" secondItem="lFs-Tc-v4L" secondAttribute="leading" constant="20" symbolic="YES" id="jDO-u5-ffr"/>
-                                            <constraint firstItem="VqV-2c-LVg" firstAttribute="centerY" secondItem="lFs-Tc-v4L" secondAttribute="centerY" multiplier="0.9" id="qhb-LB-jRb"/>
                                             <constraint firstAttribute="trailing" secondItem="DYi-xz-igr" secondAttribute="trailing" constant="20" symbolic="YES" id="smH-wH-Pq5"/>
                                             <constraint firstItem="DYi-xz-igr" firstAttribute="height" secondItem="lFs-Tc-v4L" secondAttribute="height" multiplier="0.45" id="vrQ-X7-heP"/>
                                             <constraint firstItem="Wfg-7D-F1V" firstAttribute="top" secondItem="lFs-Tc-v4L" secondAttribute="top" constant="20" symbolic="YES" id="weU-o4-VVn"/>
@@ -321,7 +306,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="enteredTextView" destination="Wfg-7D-F1V" id="Utq-71-bLI"/>
-                        <outlet property="resultButton" destination="VqV-2c-LVg" id="NuE-LL-lPV"/>
                         <outlet property="resultTextView" destination="DYi-xz-igr" id="5xi-SA-xVC"/>
                         <outlet property="segmentControl" destination="KfA-ik-O6S" id="TiS-bb-q8R"/>
                         <outlet property="textFied" destination="YFJ-sT-u8Q" id="Nb9-h5-bVy"/>

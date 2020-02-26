@@ -14,23 +14,23 @@ class Lab2ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var enteredTextView: UITextView!
     @IBOutlet weak var resultTextView: UITextView!
-    @IBOutlet weak var resultButton: UIButton!
+//    @IBOutlet weak var resultButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         manually()
         
-        resultButton.layer.cornerRadius = CGFloat((Double(resultButton.frame.height) ) / 2.0)
-
-         // Hides the resultButton moving it down
-                UIView.animate(withDuration: 0) {
-                self.resultButton.transform = CGAffineTransform(translationX: 0, y: self.view.center.y)
-                }
+//        resultButton.layer.cornerRadius = CGFloat((Double(resultButton.frame.height) ) / 2.0)
+//
+//         // Hides the resultButton moving it down
+//                UIView.animate(withDuration: 0) {
+//                self.resultButton.transform = CGAffineTransform(translationX: 0, y: self.view.center.y)
+//                }
                 
-                // Listen for keyboard events
-                NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-                NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+//                // Listen for keyboard events
+//                NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+//                NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
 
     }
     
@@ -50,29 +50,31 @@ class Lab2ViewController: UIViewController, UITextFieldDelegate {
             }
 
         default:
+            enteredTextView.text = nil
             resultTextView.text = nil
+            timeLabel.text = nil
         }
         return true
     }
     
-    @objc func keyboardWillChange(notification: Notification){
-           
-        if notification.name.rawValue == "UIKeyboardWillShowNotification"{
-            UIView.animate(withDuration: 2) {
-                self.resultButton.transform = CGAffineTransform(translationX: 0, y: 0)
-            }
-        } else {
-            UIView.animate(withDuration: 2) {
-                self.resultButton.transform = CGAffineTransform(translationX: 0, y: self.view.center.y)
-            }
-        }
-    }
-       
-    deinit {
-        // Stop listening for keyboard show/hide events
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
+//    @objc func keyboardWillChange(notification: Notification){
+//
+//        if notification.name.rawValue == "UIKeyboardWillShowNotification"{
+//            UIView.animate(withDuration: 2) {
+//                self.resultButton.transform = CGAffineTransform(translationX: 0, y: 0)
+//            }
+//        } else {
+//            UIView.animate(withDuration: 2) {
+//                self.resultButton.transform = CGAffineTransform(translationX: 0, y: self.view.center.y)
+//            }
+//        }
+//    }
+//
+//    deinit {
+//        // Stop listening for keyboard show/hide events
+//        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+//        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+//    }
     
     
     func alert() -> UIAlertController {
@@ -87,21 +89,23 @@ class Lab2ViewController: UIViewController, UITextFieldDelegate {
     }
  
     func showResult(_ array: [Double]) {
-        var stringArray: [Double] = []
-        var stringSortArray: [Double] = []
+//        var stringArray: [Double] = []
+//        var stringSortArray: [Double] = []
         var sortArray = array
+        let start = Date()
         quicksortHoare(&sortArray, low: 0, high: sortArray.count - 1)
+        let end = Date()
+//        for i in array{
+//            stringArray.append(i.rounded(digits: 3))
+//        }
+//        for j in sortArray{
+//            stringSortArray.append(j.rounded(digits: 3))
+//        }
         
-        for i in array{
-            stringArray.append(i.rounded(digits: 3))
-        }
-        for j in sortArray{
-            stringSortArray.append(j.rounded(digits: 3))
-        }
-        
-        timeLabel.text = "Час: "
-        enteredTextView.text = "Початковий масив: " + stringArray.description
-        resultTextView.text = "Відсортований масив: " + stringSortArray.description
+        let timeInterval: Double = end.timeIntervalSince(start)
+        timeLabel.text = "\(array.count) елементів.  Час: \(timeInterval.rounded(digits: 8))"
+        enteredTextView.text = "Початковий масив: " + array.description
+        resultTextView.text = "Відсортований масив: " + sortArray.description
         
         hideKeybourd()
     }
@@ -113,32 +117,32 @@ class Lab2ViewController: UIViewController, UITextFieldDelegate {
             present(alert(), animated: true, completion: nil)
         } else {
             for _ in 1...n {
-                array.append(Double.random(in: 1..<100))
+                array.append(Double.random(in: 1..<100).rounded(digits: 3))
             }
         }
         return array
     }
     
     
-    @IBAction func didPressResult(_ sender: UIButton) {
-        switch segmentControl.selectedSegmentIndex {
-        case 0:
-            let array: [Double] = prepareArray(textField: textFied)
-            showResult(array)
-            
-        case 1:
-            if textFied.text == "" {
-                resultTextView.text = ""
-                hideKeybourd()
-            } else {
-                let array: [Double] = createArray(textFied)
-                showResult(array)
-            }
-
-        default:
-            resultTextView.text = nil
-        }
-    }
+//    @IBAction func didPressResult(_ sender: UIButton) {
+//        switch segmentControl.selectedSegmentIndex {
+//        case 0:
+//            let array: [Double] = prepareArray(textField: textFied)
+//            showResult(array)
+//
+//        case 1:
+//            if textFied.text == "" {
+//                resultTextView.text = ""
+//                hideKeybourd()
+//            } else {
+//                let array: [Double] = createArray(textFied)
+//                showResult(array)
+//            }
+//
+//        default:
+//            resultTextView.text = nil
+//        }
+//    }
     
     
     func manually () {
