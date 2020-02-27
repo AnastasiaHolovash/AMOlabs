@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Charts
 
 class Lab2ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var segmentControl: UISegmentedControl!
@@ -14,24 +15,23 @@ class Lab2ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var enteredTextView: UITextView!
     @IBOutlet weak var resultTextView: UITextView!
-//    @IBOutlet weak var resultButton: UIButton!
+    @IBOutlet weak var rangeSlider: UISlider!
+    @IBOutlet weak var sliderLabel: UILabel!
+    @IBOutlet weak var sliderStackView: UIStackView!
+    //    @IBOutlet weak var resultButton: UIButton!
+    
+    var sliderValue = 100
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         manually()
+        rangeSlider.minimumValue = 1
+        rangeSlider.maximumValue = 1000
+        rangeSlider.value = 100
+        sliderLabel.text = "100"
+        sliderStackView.isHidden = true
         
-//        resultButton.layer.cornerRadius = CGFloat((Double(resultButton.frame.height) ) / 2.0)
-//
-//         // Hides the resultButton moving it down
-//                UIView.animate(withDuration: 0) {
-//                self.resultButton.transform = CGAffineTransform(translationX: 0, y: self.view.center.y)
-//                }
-                
-//                // Listen for keyboard events
-//                NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-//                NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -57,25 +57,6 @@ class Lab2ViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-//    @objc func keyboardWillChange(notification: Notification){
-//
-//        if notification.name.rawValue == "UIKeyboardWillShowNotification"{
-//            UIView.animate(withDuration: 2) {
-//                self.resultButton.transform = CGAffineTransform(translationX: 0, y: 0)
-//            }
-//        } else {
-//            UIView.animate(withDuration: 2) {
-//                self.resultButton.transform = CGAffineTransform(translationX: 0, y: self.view.center.y)
-//            }
-//        }
-//    }
-//
-//    deinit {
-//        // Stop listening for keyboard show/hide events
-//        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-//        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-//    }
-    
     
     func alert() -> UIAlertController {
         let alert = UIAlertController(title: "", message: "Введіть ціле число більше за 0", preferredStyle: .alert)
@@ -89,18 +70,10 @@ class Lab2ViewController: UIViewController, UITextFieldDelegate {
     }
  
     func showResult(_ array: [Double]) {
-//        var stringArray: [Double] = []
-//        var stringSortArray: [Double] = []
         var sortArray = array
         let start = Date()
         quicksortHoare(&sortArray, low: 0, high: sortArray.count - 1)
         let end = Date()
-//        for i in array{
-//            stringArray.append(i.rounded(digits: 3))
-//        }
-//        for j in sortArray{
-//            stringSortArray.append(j.rounded(digits: 3))
-//        }
         
         let timeInterval: Double = end.timeIntervalSince(start)
         timeLabel.text = "\(array.count) елементів.  Час: \(timeInterval.rounded(digits: 8))"
@@ -116,33 +89,16 @@ class Lab2ViewController: UIViewController, UITextFieldDelegate {
         if n == 0 {
             present(alert(), animated: true, completion: nil)
         } else {
+//            let max = sliderValue
+//            let range = Range(0...max)
+//            let cRange = ClosedRange(range)
             for _ in 1...n {
-                array.append(Double.random(in: 1..<100).rounded(digits: 3))
+                array.append(Double.random(min: 0.00, max: Double(sliderValue)).rounded(digits: 3))
+//                array.append(Double.random(in: range).rounded(digits: 3))
             }
         }
         return array
     }
-    
-    
-//    @IBAction func didPressResult(_ sender: UIButton) {
-//        switch segmentControl.selectedSegmentIndex {
-//        case 0:
-//            let array: [Double] = prepareArray(textField: textFied)
-//            showResult(array)
-//
-//        case 1:
-//            if textFied.text == "" {
-//                resultTextView.text = ""
-//                hideKeybourd()
-//            } else {
-//                let array: [Double] = createArray(textFied)
-//                showResult(array)
-//            }
-//
-//        default:
-//            resultTextView.text = nil
-//        }
-//    }
     
     
     func manually () {
@@ -163,15 +119,52 @@ class Lab2ViewController: UIViewController, UITextFieldDelegate {
         switch segmentControl.selectedSegmentIndex {
         case 0:
             manually()
+            sliderStackView.isHidden = true
         case 1:
             textFied.placeholder = "Введіть кількість елементів"
             cleanText()
+            sliderStackView.isHidden = false
+
         default:
             textFied.placeholder = ""
             cleanText()
+            sliderStackView.isHidden = false
+
         }
     }
+    @IBAction func sliderValueChanged(_ sender: UISlider) {
+        sliderValue = Int(sender.value)
+        sliderLabel.text = "\(sliderValue)"
+    }
     
+    /// Get test results withot any funcions
+    /// - Parameters:
+    ///     - count: Number of for loops for test value in witch array length = count * 1000
+    func getTestValues(count: Int) -> [ChartDataEntry] {
+        var values: [ChartDataEntry] = []
+        
+        for n in 1..<count {
+            let nn = n * 1000
+            
+            var arrayA: [Double] = []
+
+            for _ in 0..<nn {
+                arrayA.append((Double.random(in: 0..<500).rounded(digits: 2)))
+            }
+            
+            
+            let start = Date()
+            quicksortHoare(&arrayA, low: 0, high: arrayA.count - 1)
+            let end = Date()
+            
+            let timeInterval: Double = end.timeIntervalSince(start)
+                    
+            let charData = ChartDataEntry(x: Double(nn), y: timeInterval * 1000)
+
+            values.append(charData)
+        }
+        return values
+    }
     
     // MARK: Винести
     func prepareArray(textField: UITextField) -> [Double] {

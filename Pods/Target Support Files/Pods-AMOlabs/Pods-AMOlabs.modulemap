@@ -1,0 +1,6 @@
+module Pods_AMOlabs {
+  umbrella header "Pods-AMOlabs-umbrella.h"
+
+  export *
+  module * { export * }
+}
