@@ -8,48 +8,48 @@
 
 import UIKit
 
-class Lab1Task2ViewController: UIViewController {
+class Lab1Task2ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var aTextField: UITextField!
     @IBOutlet weak var kTextField: UITextField!
     @IBOutlet weak var cTextField: UITextField!
     @IBOutlet weak var pTextField: UITextField!
     @IBOutlet weak var resultLabel: UILabel!
-    @IBOutlet weak var resultButton: UIButton!
+//    @IBOutlet weak var resultButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        resultButton.layer.cornerRadius = CGFloat((Double(resultButton.frame.height) ) / 2.0)
-
-        // Hides the resultButton moving it down
-               UIView.animate(withDuration: 0) {
-               self.resultButton.transform = CGAffineTransform(translationX: 0, y: self.view.center.y)
-               }
-               
-               // Listen for keyboard events
-               NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-               NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+//        resultButton.layer.cornerRadius = CGFloat((Double(resultButton.frame.height) ) / 2.0)
+//
+//        // Hides the resultButton moving it down
+//               UIView.animate(withDuration: 0) {
+//               self.resultButton.transform = CGAffineTransform(translationX: 0, y: self.view.center.y)
+//               }
+//
+//               // Listen for keyboard events
+//               NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+//               NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
     }
     
-    @objc func keyboardWillChange(notification: Notification){
-        
-        if notification.name.rawValue == "UIKeyboardWillShowNotification"{
-            UIView.animate(withDuration: 2) {
-                self.resultButton.transform = CGAffineTransform(translationX: 0, y: 0)
-            }
-        }else{
-            UIView.animate(withDuration: 2) {
-                self.resultButton.transform = CGAffineTransform(translationX: 0, y: self.view.center.y)
-            }
-        }
-    }
-    
-    deinit {
-        // Stop listening for keyboard show/hide events
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
+//    @objc func keyboardWillChange(notification: Notification){
+//        
+//        if notification.name.rawValue == "UIKeyboardWillShowNotification"{
+//            UIView.animate(withDuration: 2) {
+//                self.resultButton.transform = CGAffineTransform(translationX: 0, y: 0)
+//            }
+//        }else{
+//            UIView.animate(withDuration: 2) {
+//                self.resultButton.transform = CGAffineTransform(translationX: 0, y: self.view.center.y)
+//            }
+//        }
+//    }
+//    
+//    deinit {
+//        // Stop listening for keyboard show/hide events
+//        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+//        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+//    }
 
     
     ///Appears when c*k = p.
@@ -66,6 +66,11 @@ class Lab1Task2ViewController: UIViewController {
         cTextField.resignFirstResponder()
         pTextField.resignFirstResponder()
         showResultLab1Tack2()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        hideKeybourd()
+        return true
     }
     
     @IBAction func didPressResultButton(_ sender: UIButton) {

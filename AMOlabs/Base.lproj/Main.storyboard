@@ -501,7 +501,10 @@
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введіть чило" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HWW-Eo-ztl">
                                                         <rect key="frame" x="107.66666666666666" y="11.666666666666629" width="262.33333333333337" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="ajk-vT-1RP" id="GXR-LW-Si0"/>
+                                                        </connections>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a : " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="urW-LD-6Vr">
                                                         <rect key="frame" x="0.0" y="13.666666666666629" width="112.66666666666667" height="30"/>
@@ -534,7 +537,10 @@
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введіть чило" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SJB-tV-5kw">
                                                         <rect key="frame" x="107.66666666666666" y="11.666666666666686" width="262.33333333333337" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="ajk-vT-1RP" id="s8Z-HH-Spg"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -561,7 +567,10 @@
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введіть чило" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pGe-HT-Dy2">
                                                         <rect key="frame" x="107.66666666666666" y="11.666666666666629" width="262.33333333333337" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="ajk-vT-1RP" id="mkh-Bl-Vd8"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -587,26 +596,12 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="di8-EW-BYZ">
-                                                <rect key="frame" x="84.333333333333329" y="41" width="206.33333333333337" height="39"/>
-                                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                <state key="normal" title="Показати результат">
-                                                    <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="didPressResult:" destination="ajk-vT-1RP" eventType="touchUpInside" id="qsw-XT-cOd"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstItem="a7M-xG-kiw" firstAttribute="centerY" secondItem="nWR-Fi-VKu" secondAttribute="centerY" multiplier="1.4" id="2B3-9Y-lor"/>
-                                            <constraint firstItem="di8-EW-BYZ" firstAttribute="centerX" secondItem="nWR-Fi-VKu" secondAttribute="centerX" id="C8s-zg-yAj"/>
                                             <constraint firstItem="a7M-xG-kiw" firstAttribute="centerX" secondItem="nWR-Fi-VKu" secondAttribute="centerX" id="EvD-wf-lQN"/>
                                             <constraint firstItem="a7M-xG-kiw" firstAttribute="width" secondItem="nWR-Fi-VKu" secondAttribute="width" id="Uhw-iS-kgE"/>
-                                            <constraint firstItem="di8-EW-BYZ" firstAttribute="centerY" secondItem="nWR-Fi-VKu" secondAttribute="centerY" multiplier="0.7" id="ZIg-eq-Fff"/>
-                                            <constraint firstItem="di8-EW-BYZ" firstAttribute="width" secondItem="nWR-Fi-VKu" secondAttribute="width" multiplier="0.55" id="pRL-Y6-8wO"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FIW-Gw-slK">
@@ -644,7 +639,6 @@
                     <connections>
                         <outlet property="aTextField" destination="HWW-Eo-ztl" id="cWp-sm-cno"/>
                         <outlet property="cTextField" destination="pGe-HT-Dy2" id="qrn-B0-iC3"/>
-                        <outlet property="resultButton" destination="di8-EW-BYZ" id="uRu-gg-2Xg"/>
                         <outlet property="resultLabel" destination="a7M-xG-kiw" id="tNC-CG-7f2"/>
                         <outlet property="xTextField" destination="SJB-tV-5kw" id="6ve-Jc-yAo"/>
                     </connections>
@@ -693,7 +687,10 @@
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введіть чило" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zmW-Qv-92W">
                                                         <rect key="frame" x="102.66666666666666" y="4.3333333333333144" width="262.33333333333337" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="UlY-g5-lC3" id="aou-4e-Nnv"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -720,7 +717,10 @@
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введіть чило" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qOW-J9-unL">
                                                         <rect key="frame" x="102.66666666666666" y="4.6666666666666288" width="262.33333333333337" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="UlY-g5-lC3" id="X9P-BY-On5"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -747,7 +747,10 @@
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введіть чило" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6kU-4b-8jc">
                                                         <rect key="frame" x="102.66666666666666" y="4.6666666666666288" width="262.33333333333337" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="UlY-g5-lC3" id="6Ol-mY-Otr"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -774,7 +777,10 @@
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введіть чило" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2mM-YB-y8J">
                                                         <rect key="frame" x="102.66666666666666" y="4.3333333333333144" width="262.33333333333337" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="UlY-g5-lC3" id="HvI-lO-DYi"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -800,27 +806,12 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cu-pA-vEk">
-                                                <rect key="frame" x="84.333333333333329" y="41" width="206.33333333333337" height="39"/>
-                                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                <state key="normal" title="Показати результат">
-                                                    <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="didPressResult:" destination="ajk-vT-1RP" eventType="touchUpInside" id="gEA-BF-jkU"/>
-                                                    <action selector="didPressResultButton:" destination="UlY-g5-lC3" eventType="touchUpInside" id="x6q-9X-WUE"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstItem="LzY-Zr-tfd" firstAttribute="centerY" secondItem="8pw-4j-2BW" secondAttribute="centerY" multiplier="1.4" id="5VW-CB-LKa"/>
                                             <constraint firstItem="LzY-Zr-tfd" firstAttribute="centerX" secondItem="8pw-4j-2BW" secondAttribute="centerX" id="Jfb-OC-HCS"/>
                                             <constraint firstItem="LzY-Zr-tfd" firstAttribute="width" secondItem="8pw-4j-2BW" secondAttribute="width" id="K9s-Tw-6Ma"/>
-                                            <constraint firstItem="7cu-pA-vEk" firstAttribute="centerY" secondItem="8pw-4j-2BW" secondAttribute="centerY" multiplier="0.7" id="SjD-Vu-KCq"/>
-                                            <constraint firstItem="7cu-pA-vEk" firstAttribute="centerX" secondItem="8pw-4j-2BW" secondAttribute="centerX" id="kGV-km-rqB"/>
-                                            <constraint firstItem="7cu-pA-vEk" firstAttribute="width" secondItem="8pw-4j-2BW" secondAttribute="width" multiplier="0.55" id="zNB-H3-1rX"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5uE-Ms-YIP">
@@ -858,7 +849,6 @@
                         <outlet property="cTextField" destination="6kU-4b-8jc" id="E99-Va-5dY"/>
                         <outlet property="kTextField" destination="qOW-J9-unL" id="yOK-fi-ZCp"/>
                         <outlet property="pTextField" destination="2mM-YB-y8J" id="aU6-Oa-7qW"/>
-                        <outlet property="resultButton" destination="7cu-pA-vEk" id="ZAv-vs-ZqG"/>
                         <outlet property="resultLabel" destination="LzY-Zr-tfd" id="BiA-UL-ByH"/>
                     </connections>
                 </viewController>
@@ -929,6 +919,9 @@
                                                         <rect key="frame" x="102.66666666666666" y="11.666666666666686" width="262.33333333333337" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="eXV-sk-wja" id="7dl-lZ-SaT"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -955,6 +948,9 @@
                                                         <rect key="frame" x="102.66666666666666" y="11.666666666666629" width="262.33333333333337" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="eXV-sk-wja" id="C95-6w-Osa"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -979,27 +975,12 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gia-3w-hlp">
-                                                <rect key="frame" x="84.333333333333329" y="41" width="206.33333333333337" height="39"/>
-                                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                <state key="normal" title="Показати результат">
-                                                    <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="didPressResult:" destination="ajk-vT-1RP" eventType="touchUpInside" id="XhF-nf-4eO"/>
-                                                    <action selector="didPressResult:" destination="eXV-sk-wja" eventType="touchUpInside" id="lCu-1L-GgA"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstItem="RdE-6E-YtA" firstAttribute="centerX" secondItem="l2N-HY-apy" secondAttribute="centerX" id="1la-f0-GeH"/>
                                             <constraint firstItem="RdE-6E-YtA" firstAttribute="width" secondItem="l2N-HY-apy" secondAttribute="width" id="R14-7B-cvd"/>
-                                            <constraint firstItem="Gia-3w-hlp" firstAttribute="centerX" secondItem="l2N-HY-apy" secondAttribute="centerX" id="RGA-h4-1DP"/>
-                                            <constraint firstItem="Gia-3w-hlp" firstAttribute="centerY" secondItem="l2N-HY-apy" secondAttribute="centerY" multiplier="0.7" id="hWY-Pr-J72"/>
                                             <constraint firstItem="RdE-6E-YtA" firstAttribute="centerY" secondItem="l2N-HY-apy" secondAttribute="centerY" multiplier="1.4" id="k8w-RV-ebw"/>
-                                            <constraint firstItem="Gia-3w-hlp" firstAttribute="width" secondItem="l2N-HY-apy" secondAttribute="width" multiplier="0.55" id="nXY-kX-zWp"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="UcD-xA-kvP">
@@ -1056,7 +1037,6 @@
                         <outlet property="arrayLabel" destination="8uS-Yl-2Dp" id="Xx1-iN-dkE"/>
                         <outlet property="firstLabel" destination="fyi-2I-U2p" id="1Vh-SP-tgj"/>
                         <outlet property="firstTextField" destination="lx3-i0-mRw" id="hcs-sD-iY9"/>
-                        <outlet property="resultButton" destination="Gia-3w-hlp" id="dST-1b-q7I"/>
                         <outlet property="resultLabel" destination="RdE-6E-YtA" id="R8L-iq-vha"/>
                         <outlet property="secondLabel" destination="w99-QD-8bg" id="uwo-av-Pyo"/>
                         <outlet property="secondTextField" destination="mrQ-Na-kmb" id="VH3-I3-HHR"/>

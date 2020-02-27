@@ -8,12 +8,12 @@
 
 import UIKit
 
-class Lab1Task3ViewController: UIViewController {
+class Lab1Task3ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var firstLabel: UILabel!
     @IBOutlet weak var secondLabel: UILabel!
     @IBOutlet weak var firstTextField: UITextField!
     @IBOutlet weak var secondTextField: UITextField!
-    @IBOutlet weak var resultButton: UIButton!
+//    @IBOutlet weak var resultButton: UIButton!
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var arrayLabel: UILabel!
@@ -25,37 +25,39 @@ class Lab1Task3ViewController: UIViewController {
         
         manually()
         
-        resultButton.layer.cornerRadius = CGFloat((Double(resultButton.frame.height) ) / 2.0)
-
-        // Hides the resultButton moving it down
-               UIView.animate(withDuration: 0) {
-               self.resultButton.transform = CGAffineTransform(translationX: 0, y: self.view.center.y)
-               }
-               
-               // Listen for keyboard events
-               NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-               NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        
+//        resultButton.layer.cornerRadius = CGFloat((Double(resultButton.frame.height) ) / 2.0)
+//
+//        // Hides the resultButton moving it down
+//               UIView.animate(withDuration: 0) {
+//               self.resultButton.transform = CGAffineTransform(translationX: 0, y: self.view.center.y)
+//               }
+//
+//               // Listen for keyboard events
+//               NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+//               NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
     }
     
-    @objc func keyboardWillChange(notification: Notification){
-        
-        if notification.name.rawValue == "UIKeyboardWillShowNotification"{
-            UIView.animate(withDuration: 2) {
-                self.resultButton.transform = CGAffineTransform(translationX: 0, y: 0)
-            }
-        }else{
-            UIView.animate(withDuration: 2) {
-                self.resultButton.transform = CGAffineTransform(translationX: 0, y: self.view.center.y)
-            }
-        }
-    }
-    
-    deinit {
-        // Stop listening for keyboard show/hide events
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
+//    @objc func keyboardWillChange(notification: Notification){
+//        
+//        if notification.name.rawValue == "UIKeyboardWillShowNotification"{
+//            UIView.animate(withDuration: 2) {
+//                self.resultButton.transform = CGAffineTransform(translationX: 0, y: 0)
+//            }
+//        }else{
+//            UIView.animate(withDuration: 2) {
+//                self.resultButton.transform = CGAffineTransform(translationX: 0, y: self.view.center.y)
+//            }
+//        }
+//    }
+//    
+//    deinit {
+//        // Stop listening for keyboard show/hide events
+//        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+//        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+//    }
     
     func hideKeybourd() {
         firstTextField.resignFirstResponder()
@@ -89,6 +91,56 @@ class Lab1Task3ViewController: UIViewController {
         hideKeybourd()
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
+        switch segmentControl.selectedSegmentIndex {
+        case 0:
+            
+            let arrayA: [Double] = prepareArray(textField: firstTextField)
+            let arrayB: [Double] = prepareArray(textField: secondTextField)
+            
+            showResultLab1Tack3(arrayA, arrayB)
+            
+        case 1:
+            
+            if firstTextField.text == "" || secondTextField.text == ""{
+                resultLabel.text = ""
+                hideKeybourd()
+            
+            } else {
+                let n = Int((firstTextField.text ?? "").replacingOccurrences(of: ",", with: ".")) ?? 0
+                let p = Int((secondTextField.text ?? "").replacingOccurrences(of: ",", with: ".")) ?? 0
+                var arrayA: [Double] = []
+                var arrayB: [Double] = []
+                
+                var stringArrayA: [Double] = []
+                var stringArrayB: [Double] = []
+                
+                for _ in 1...n {
+                    arrayA.append(Double.random(in: 1..<100))
+                }
+                for _ in 1...p {
+                    arrayB.append(Double.random(in: 1..<100))
+                }
+                showResultLab1Tack3(arrayA, arrayB)
+                
+                for i in arrayA{
+                    stringArrayA.append(i.rounded(digits: 3))
+                }
+                for j in arrayB{
+                    stringArrayB.append(j.rounded(digits: 3))
+                }
+                
+                arrayLabel.text = "Згенеровані масиви:"
+                arrayALabel.text = "A: " + stringArrayA.description
+                arrayBLabel.text = "B: " + stringArrayB.description
+                
+            }
+
+        default:
+            arrayLabel.text = nil
+        }
+        return true
+    }
     
     @IBAction func didPressResult(_ sender: UIButton) {
         switch segmentControl.selectedSegmentIndex {
