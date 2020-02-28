@@ -11,14 +11,21 @@ import UIKit
 class Lab1Task3ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var firstLabel: UILabel!
     @IBOutlet weak var secondLabel: UILabel!
-    @IBOutlet weak var firstTextField: UITextField!
-    @IBOutlet weak var secondTextField: UITextField!
-//    @IBOutlet weak var resultButton: UIButton!
     @IBOutlet weak var resultLabel: UILabel!
-    @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var arrayLabel: UILabel!
     @IBOutlet weak var arrayALabel: UILabel!
     @IBOutlet weak var arrayBLabel: UILabel!
+    
+    @IBOutlet weak var firstTextField: UITextField!
+    @IBOutlet weak var secondTextField: UITextField!
+    
+    @IBOutlet weak var segmentControl: UISegmentedControl!
+    
+    @IBOutlet weak var firstArrayView: UIView!
+    @IBOutlet weak var secondArrayView: UIView!
+    @IBOutlet weak var readFromFileView: UIView!
+    @IBOutlet weak var writeInFileView: UIView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,46 +33,27 @@ class Lab1Task3ViewController: UIViewController, UITextFieldDelegate {
         manually()
         
         
-        
-//        resultButton.layer.cornerRadius = CGFloat((Double(resultButton.frame.height) ) / 2.0)
-//
-//        // Hides the resultButton moving it down
-//               UIView.animate(withDuration: 0) {
-//               self.resultButton.transform = CGAffineTransform(translationX: 0, y: self.view.center.y)
-//               }
-//
-//               // Listen for keyboard events
-//               NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-//               NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
     }
-    
-//    @objc func keyboardWillChange(notification: Notification){
-//        
-//        if notification.name.rawValue == "UIKeyboardWillShowNotification"{
-//            UIView.animate(withDuration: 2) {
-//                self.resultButton.transform = CGAffineTransform(translationX: 0, y: 0)
-//            }
-//        }else{
-//            UIView.animate(withDuration: 2) {
-//                self.resultButton.transform = CGAffineTransform(translationX: 0, y: self.view.center.y)
-//            }
-//        }
-//    }
-//    
-//    deinit {
-//        // Stop listening for keyboard show/hide events
-//        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-//        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-//    }
+
     
     func hideKeybourd() {
         firstTextField.resignFirstResponder()
         secondTextField.resignFirstResponder()
     }
      // MARK: Винести
-    func prepareArray(textField: UITextField) -> [Double] {
+    func prepareArrayForTextField(textField: UITextField) -> [Double] {
         let splited = (textField.text ?? "").split(separator: ",")
+        var arrayA: [Double] = []
+        
+        for one in splited {
+            let trimmed = String(one).trimmingCharacters(in: .whitespacesAndNewlines)
+            arrayA.append(Double(trimmed) ?? 0.0)
+        }
+        
+        return arrayA
+    }
+    func prepareArray(_ string: String) -> [Double] {
+        let splited = string.split(separator: ",")
         var arrayA: [Double] = []
         
         for one in splited {
@@ -95,8 +83,8 @@ class Lab1Task3ViewController: UIViewController, UITextFieldDelegate {
         switch segmentControl.selectedSegmentIndex {
         case 0:
             
-            let arrayA: [Double] = prepareArray(textField: firstTextField)
-            let arrayB: [Double] = prepareArray(textField: secondTextField)
+            let arrayA: [Double] = prepareArrayForTextField(textField: firstTextField)
+            let arrayB: [Double] = prepareArrayForTextField(textField: secondTextField)
             
             showResultLab1Tack3(arrayA, arrayB)
             
@@ -142,55 +130,6 @@ class Lab1Task3ViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    @IBAction func didPressResult(_ sender: UIButton) {
-        switch segmentControl.selectedSegmentIndex {
-        case 0:
-            
-            let arrayA: [Double] = prepareArray(textField: firstTextField)
-            let arrayB: [Double] = prepareArray(textField: secondTextField)
-            
-            showResultLab1Tack3(arrayA, arrayB)
-            
-        case 1:
-            
-            if firstTextField.text == "" || secondTextField.text == ""{
-                resultLabel.text = ""
-                hideKeybourd()
-            
-            } else {
-                let n = Int((firstTextField.text ?? "").replacingOccurrences(of: ",", with: ".")) ?? 0
-                let p = Int((secondTextField.text ?? "").replacingOccurrences(of: ",", with: ".")) ?? 0
-                var arrayA: [Double] = []
-                var arrayB: [Double] = []
-                
-                var stringArrayA: [Double] = []
-                var stringArrayB: [Double] = []
-                
-                for _ in 1...n {
-                    arrayA.append(Double.random(in: 1..<100))
-                }
-                for _ in 1...p {
-                    arrayB.append(Double.random(in: 1..<100))
-                }
-                showResultLab1Tack3(arrayA, arrayB)
-                
-                for i in arrayA{
-                    stringArrayA.append(i.rounded(digits: 3))
-                }
-                for j in arrayB{
-                    stringArrayB.append(j.rounded(digits: 3))
-                }
-                
-                arrayLabel.text = "Згенеровані масиви:"
-                arrayALabel.text = "A: " + stringArrayA.description
-                arrayBLabel.text = "B: " + stringArrayB.description
-                
-            }
-
-        default:
-            arrayLabel.text = nil
-        }
-    }
     
     func manually () {
         firstLabel.text = "A[] :"
@@ -199,6 +138,10 @@ class Lab1Task3ViewController: UIViewController, UITextFieldDelegate {
         secondTextField.placeholder = "Введіть елементи масиву"
         firstTextField.text = ""
         secondTextField.text = ""
+        firstArrayView.isHidden = false
+        secondArrayView.isHidden = false
+        readFromFileView.isHidden = true
+        writeInFileView.isHidden = true
 
     }
     
@@ -214,6 +157,16 @@ class Lab1Task3ViewController: UIViewController, UITextFieldDelegate {
             secondTextField.placeholder = "Введіть число"
             firstTextField.text = ""
             secondTextField.text = ""
+            firstArrayView.isHidden = false
+            secondArrayView.isHidden = false
+            readFromFileView.isHidden = true
+            writeInFileView.isHidden = true
+        
+        case 2:
+            firstArrayView.isHidden = true
+            secondArrayView.isHidden = true
+            readFromFileView.isHidden = false
+            writeInFileView.isHidden = false
             
         default:
             firstLabel.text = " "
@@ -222,6 +175,10 @@ class Lab1Task3ViewController: UIViewController, UITextFieldDelegate {
             secondTextField.placeholder = " "
             firstTextField.text = ""
             secondTextField.text = ""
+            firstArrayView.isHidden = false
+            secondArrayView.isHidden = false
+            readFromFileView.isHidden = true
+            writeInFileView.isHidden = true
         }
     }
     
@@ -235,6 +192,62 @@ class Lab1Task3ViewController: UIViewController, UITextFieldDelegate {
     }
     
 
+    @IBAction func didPressReadFromFile(_ sender: UIButton) {
+//        var array: [String] = []
+
+        do {
+            let text1 = try makeWritableCopy(named: "arrayA.txt", ofResourceFile: "arrayA.txt")
+            let text2 = try makeWritableCopy(named: "arrayB.txt", ofResourceFile: "arrayB.txt")
+            let arrayA = prepareArray(text1)
+            let arrayB = prepareArray(text2)
+            print(text1)
+            
+            print(text2)
+            
+            showResultLab1Tack3(arrayA, arrayB)
+            
+            arrayLabel.text = "Згенеровані масиви:"
+            arrayALabel.text = "A: " + arrayA.description
+            arrayBLabel.text = "B: " + arrayB.description
+            
+        } catch {
+            
+        }
+    }
+
+        
+        func makeWritableCopy(named destFileName: String, ofResourceFile originalFileName: String) throws -> String {
+            // Get Documents directory in app bundle
+            guard let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last else {
+                fatalError("No document directory found in application bundle.")
+            }
+
+            // Get URL for dest file (in Documents directory)
+            let writableFileURL = documentsDirectory.appendingPathComponent(destFileName)
+
+            // If dest file doesn’t exist yet
+            if (try? writableFileURL.checkResourceIsReachable()) == nil {
+                // Get original (unwritable) file’s URL
+                guard let originalFileURL = Bundle.main.url(forResource: originalFileName, withExtension: nil) else {
+                    fatalError("Cannot find original file “\(originalFileName)” in application bundle’s resources.")
+                }
+
+                // Get original file’s contents
+                let originalContents = try Data(contentsOf: originalFileURL)
+
+                // Write original file’s contents to dest file
+                try originalContents.write(to: writableFileURL, options: .atomic)
+                print("Made a writable copy of file “\(originalFileName)” in “\(documentsDirectory)\\\(destFileName)”.")
+
+            } else { // Dest file already exists
+                // Print dest file contents
+                return try String(contentsOf: writableFileURL, encoding: String.Encoding.utf8)
+    //            print("File “\(destFileName)” already exists in “\(documentsDirectory)”.\nContents:\n\(contents)")
+            }
+            
+            return ""
+
+        }
 }
 
 

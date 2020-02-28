@@ -318,7 +318,7 @@
                         <viewLayoutGuide key="safeArea" id="EIP-gi-x8O"/>
                     </view>
                     <navigationItem key="navigationItem" title="Сортування Хоара" id="aBT-QR-iml">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="DGQ-eG-h5o">
+                        <barButtonItem key="rightBarButtonItem" id="DGQ-eG-h5o">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="65K-KU-yKm">
                                 <rect key="frame" x="276" y="5.6666666666666679" width="83" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -367,7 +367,7 @@
                         <viewLayoutGuide key="safeArea" id="pKv-Rd-tPa"/>
                     </view>
                     <navigationItem key="navigationItem" id="cIo-N2-edl">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="Tdv-2C-sE9">
+                        <barButtonItem key="rightBarButtonItem" id="Tdv-2C-sE9">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Rcm-sE-kDv">
                                 <rect key="frame" x="276" y="7" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -464,7 +464,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qoL-6J-lRc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2449" y="754"/>
+            <point key="canvasLocation" x="2449" y="867"/>
         </scene>
         <!--UIViewController-->
         <scene sceneID="cEq-Pw-lNu">
@@ -621,7 +621,7 @@
                         <viewLayoutGuide key="safeArea" id="qyC-qJ-0E1"/>
                     </view>
                     <navigationItem key="navigationItem" title="Завдання №1" id="n1M-x0-j91">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="GHt-TL-EQG">
+                        <barButtonItem key="rightBarButtonItem" id="GHt-TL-EQG">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ztl-MD-vE3">
                                 <rect key="frame" x="276" y="5.6666666666666679" width="83" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -832,7 +832,7 @@
                         <viewLayoutGuide key="safeArea" id="09y-6e-7Uw"/>
                     </view>
                     <navigationItem key="navigationItem" title="Завдання №2" id="B4H-tx-ufy">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="imb-fU-Enh">
+                        <barButtonItem key="rightBarButtonItem" id="imb-fU-Enh">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aR7-Ld-Fux">
                                 <rect key="frame" x="276" y="5.6666666666666679" width="83" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -885,13 +885,14 @@
                                         <rect key="frame" x="0.0" y="172.66666666666669" width="375" height="172.33333333333331"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OVx-em-QKv">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="57.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="34.333333333333336"/>
                                                 <subviews>
                                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5mU-Wa-NdG">
-                                                        <rect key="frame" x="186" y="13" width="179" height="32"/>
+                                                        <rect key="frame" x="53" y="1.6666666666666288" width="269" height="32"/>
                                                         <segments>
                                                             <segment title="Вручну"/>
                                                             <segment title="Випадково"/>
+                                                            <segment title="Файл"/>
                                                         </segments>
                                                         <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <color key="selectedSegmentTintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -902,21 +903,21 @@
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
-                                                    <constraint firstItem="5mU-Wa-NdG" firstAttribute="centerX" secondItem="OVx-em-QKv" secondAttribute="centerX" multiplier="1.47" id="7Ji-55-S4w"/>
+                                                    <constraint firstItem="5mU-Wa-NdG" firstAttribute="centerX" secondItem="OVx-em-QKv" secondAttribute="centerX" id="7Ji-55-S4w"/>
                                                     <constraint firstItem="5mU-Wa-NdG" firstAttribute="centerY" secondItem="OVx-em-QKv" secondAttribute="centerY" id="TpZ-KA-FRF"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UKm-K7-1z2">
-                                                <rect key="frame" x="0.0" y="57.333333333333314" width="375" height="57.666666666666657"/>
+                                                <rect key="frame" x="0.0" y="34.333333333333314" width="375" height="34.666666666666657"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a :" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyi-2I-U2p">
-                                                        <rect key="frame" x="0.0" y="15.666666666666684" width="112.66666666666667" height="26.333333333333329"/>
+                                                        <rect key="frame" x="0.0" y="3.9999999999999982" width="112.66666666666667" height="26.333333333333329"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lx3-i0-mRw">
-                                                        <rect key="frame" x="102.66666666666666" y="11.666666666666686" width="262.33333333333337" height="34"/>
+                                                        <rect key="frame" x="102.66666666666666" y="0.33333333333331439" width="262.33333333333337" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                         <connections>
@@ -935,17 +936,34 @@
                                                     <constraint firstAttribute="trailing" secondItem="lx3-i0-mRw" secondAttribute="trailing" constant="10" id="sEs-MH-SzU"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Va5-8u-ggg">
+                                                <rect key="frame" x="0.0" y="69" width="375" height="34.333333333333343"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ANV-8D-XPB">
+                                                        <rect key="frame" x="118.66666666666669" y="2" width="138" height="30"/>
+                                                        <state key="normal" title="Прочитати з файлу"/>
+                                                        <connections>
+                                                            <action selector="didPressReadFromFile:" destination="eXV-sk-wja" eventType="touchUpInside" id="pNa-73-qEj"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="ANV-8D-XPB" firstAttribute="centerY" secondItem="Va5-8u-ggg" secondAttribute="centerY" id="fsA-Fv-d0a"/>
+                                                    <constraint firstItem="ANV-8D-XPB" firstAttribute="centerX" secondItem="Va5-8u-ggg" secondAttribute="centerX" id="jvC-N0-SkF"/>
+                                                </constraints>
+                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M8L-m0-Ff5">
-                                                <rect key="frame" x="0.0" y="114.99999999999999" width="375" height="57.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="103.33333333333331" width="375" height="34.666666666666657"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a :" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w99-QD-8bg">
-                                                        <rect key="frame" x="0.0" y="15.333333333333313" width="112.66666666666667" height="26.333333333333329"/>
+                                                        <rect key="frame" x="0.0" y="3.9999999999999982" width="112.66666666666667" height="26.333333333333329"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mrQ-Na-kmb">
-                                                        <rect key="frame" x="102.66666666666666" y="11.666666666666629" width="262.33333333333337" height="34"/>
+                                                        <rect key="frame" x="102.66666666666666" y="0.33333333333331439" width="262.33333333333337" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                         <connections>
@@ -962,6 +980,23 @@
                                                     <constraint firstItem="mrQ-Na-kmb" firstAttribute="centerY" secondItem="M8L-m0-Ff5" secondAttribute="centerY" id="uCY-eM-cZG"/>
                                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="w99-QD-8bg" secondAttribute="trailing" constant="20" symbolic="YES" id="vrM-gs-jh5"/>
                                                     <constraint firstItem="w99-QD-8bg" firstAttribute="width" secondItem="M8L-m0-Ff5" secondAttribute="width" multiplier="0.3" id="z2K-vu-vYG"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vde-VK-4cd">
+                                                <rect key="frame" x="0.0" y="138" width="375" height="34.333333333333343"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RXQ-KC-URk">
+                                                        <rect key="frame" x="126" y="2" width="123" height="30"/>
+                                                        <state key="normal" title="Редагувати файл"/>
+                                                        <connections>
+                                                            <segue destination="u54-XL-P78" kind="show" id="sc0-4G-4oa"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="RXQ-KC-URk" firstAttribute="centerX" secondItem="vde-VK-4cd" secondAttribute="centerX" id="iqm-Aa-UI4"/>
+                                                    <constraint firstItem="RXQ-KC-URk" firstAttribute="centerY" secondItem="vde-VK-4cd" secondAttribute="centerY" id="tbU-ua-69c"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -1019,7 +1054,7 @@
                         <viewLayoutGuide key="safeArea" id="4ee-TO-D3L"/>
                     </view>
                     <navigationItem key="navigationItem" title="Завдання №3" id="DDM-cs-AOp">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="sef-av-U4h">
+                        <barButtonItem key="rightBarButtonItem" id="sef-av-U4h">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Xn6-Sd-S2V">
                                 <rect key="frame" x="276" y="5.6666666666666679" width="83" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1035,17 +1070,67 @@
                         <outlet property="arrayALabel" destination="erC-I3-gcc" id="3cc-Ax-FzX"/>
                         <outlet property="arrayBLabel" destination="MQB-yu-7o9" id="hfv-N2-hov"/>
                         <outlet property="arrayLabel" destination="8uS-Yl-2Dp" id="Xx1-iN-dkE"/>
+                        <outlet property="firstArrayView" destination="UKm-K7-1z2" id="X0C-rI-Bsv"/>
                         <outlet property="firstLabel" destination="fyi-2I-U2p" id="1Vh-SP-tgj"/>
                         <outlet property="firstTextField" destination="lx3-i0-mRw" id="hcs-sD-iY9"/>
+                        <outlet property="readFromFileView" destination="Va5-8u-ggg" id="wDe-gK-BUu"/>
                         <outlet property="resultLabel" destination="RdE-6E-YtA" id="R8L-iq-vha"/>
+                        <outlet property="secondArrayView" destination="M8L-m0-Ff5" id="fOZ-Zz-ksl"/>
                         <outlet property="secondLabel" destination="w99-QD-8bg" id="uwo-av-Pyo"/>
                         <outlet property="secondTextField" destination="mrQ-Na-kmb" id="VH3-I3-HHR"/>
                         <outlet property="segmentControl" destination="5mU-Wa-NdG" id="fpe-1h-Tz7"/>
+                        <outlet property="writeInFileView" destination="vde-VK-4cd" id="CvV-nW-T1T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="huh-en-Mvh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1650" y="127"/>
+        </scene>
+        <!--Write View Controller-->
+        <scene sceneID="Hfo-oK-xmK">
+            <objects>
+                <viewController storyboardIdentifier="WriteViewController" id="u54-XL-P78" customClass="WriteViewController" customModule="AMOlabs" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JAV-dT-Zch">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vkl-ga-Yvh">
+                                <rect key="frame" x="8" y="87.999999999999986" width="359" height="172.66666666666663"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="psl-vZ-Ixp">
+                                <rect key="frame" x="8" y="280.66666666666669" width="359" height="172.33333333333331"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="psl-vZ-Ixp" firstAttribute="leading" secondItem="Tpy-SZ-jqK" secondAttribute="leading" constant="8" id="3MX-CH-Cbp"/>
+                            <constraint firstItem="Tpy-SZ-jqK" firstAttribute="trailing" secondItem="psl-vZ-Ixp" secondAttribute="trailing" constant="8" id="SvG-x5-yo4"/>
+                            <constraint firstItem="Tpy-SZ-jqK" firstAttribute="trailing" secondItem="Vkl-ga-Yvh" secondAttribute="trailing" constant="8" id="dbn-ug-teu"/>
+                            <constraint firstItem="Vkl-ga-Yvh" firstAttribute="leading" secondItem="Tpy-SZ-jqK" secondAttribute="leading" constant="8" id="gPr-Gr-T6r"/>
+                            <constraint firstItem="Vkl-ga-Yvh" firstAttribute="top" secondItem="Tpy-SZ-jqK" secondAttribute="top" id="jOG-Yu-UTS"/>
+                            <constraint firstItem="psl-vZ-Ixp" firstAttribute="height" secondItem="Tpy-SZ-jqK" secondAttribute="height" multiplier="0.25" id="o6v-vF-4xP"/>
+                            <constraint firstItem="Vkl-ga-Yvh" firstAttribute="height" secondItem="Tpy-SZ-jqK" secondAttribute="height" multiplier="0.25" id="ouE-b2-mWr"/>
+                            <constraint firstItem="psl-vZ-Ixp" firstAttribute="top" secondItem="Vkl-ga-Yvh" secondAttribute="bottom" constant="20" id="qNR-aF-PRV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Tpy-SZ-jqK"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="YRO-Hz-jPt"/>
+                    <connections>
+                        <outlet property="textView1" destination="Vkl-ga-Yvh" id="C77-iy-J7c"/>
+                        <outlet property="textView2" destination="psl-vZ-Ixp" id="ceL-pF-xm3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xp4-an-k7D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2449" y="129"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="C55-ts-uQ9">
