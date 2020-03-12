@@ -79,12 +79,15 @@ class Lab1Task3ViewController: UIViewController, UITextFieldDelegate {
         hideKeybourd()
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch segmentControl.selectedSegmentIndex {
         case 0:
             
             let arrayA: [Double] = prepareArrayForTextField(textField: firstTextField)
             let arrayB: [Double] = prepareArrayForTextField(textField: secondTextField)
+            arrayLabel.text = ""
+            arrayALabel.text = ""
+            arrayBLabel.text = ""
             
             showResultLab1Tack3(arrayA, arrayB)
             
@@ -118,7 +121,9 @@ class Lab1Task3ViewController: UIViewController, UITextFieldDelegate {
                     stringArrayB.append(j.rounded(digits: 3))
                 }
                 
-                arrayLabel.text = "Згенеровані масиви:"
+//                arrayLabel.text = segmentControl.selectedSegmentIndex == 2 ? "Масиви з файлу:" : "Згенеровані массиви:"
+                arrayLabel.text = "Згенеровані массиви:"
+
                 arrayALabel.text = "A: " + stringArrayA.description
                 arrayBLabel.text = "B: " + stringArrayB.description
                 
@@ -167,6 +172,7 @@ class Lab1Task3ViewController: UIViewController, UITextFieldDelegate {
             secondArrayView.isHidden = true
             readFromFileView.isHidden = false
             writeInFileView.isHidden = false
+
             
         default:
             firstLabel.text = " "
@@ -206,7 +212,7 @@ class Lab1Task3ViewController: UIViewController, UITextFieldDelegate {
             
             showResultLab1Tack3(arrayA, arrayB)
             
-            arrayLabel.text = "Згенеровані масиви:"
+            arrayLabel.text = "Масиви з файлу:"
             arrayALabel.text = "A: " + arrayA.description
             arrayBLabel.text = "B: " + arrayB.description
             

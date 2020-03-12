@@ -1094,35 +1094,58 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KPd-Gy-M3L">
+                                <rect key="frame" x="8" y="122" width="367" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="MAs-Mw-Aox"/>
+                                    <constraint firstAttribute="height" constant="21" id="MbY-Ux-Cla"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="25" id="vuN-ku-bzP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vkl-ga-Yvh">
-                                <rect key="frame" x="8" y="87.999999999999986" width="359" height="172.66666666666663"/>
+                                <rect key="frame" x="8" y="143" width="359" height="164"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="numbersAndPunctuation"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CdG-fQ-MO4">
+                                <rect key="frame" x="8" y="307" width="367" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="psl-vZ-Ixp">
-                                <rect key="frame" x="8" y="280.66666666666669" width="359" height="172.33333333333331"/>
+                                <rect key="frame" x="8" y="327" width="359" height="164"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="Tpy-SZ-jqK" firstAttribute="trailing" secondItem="KPd-Gy-M3L" secondAttribute="trailing" id="1xb-aQ-aoz"/>
                             <constraint firstItem="psl-vZ-Ixp" firstAttribute="leading" secondItem="Tpy-SZ-jqK" secondAttribute="leading" constant="8" id="3MX-CH-Cbp"/>
+                            <constraint firstItem="CdG-fQ-MO4" firstAttribute="top" secondItem="Vkl-ga-Yvh" secondAttribute="bottom" id="8lo-rA-0j3"/>
+                            <constraint firstItem="CdG-fQ-MO4" firstAttribute="leading" secondItem="Tpy-SZ-jqK" secondAttribute="leading" constant="8" id="G0n-Ap-y75"/>
+                            <constraint firstItem="KPd-Gy-M3L" firstAttribute="leading" secondItem="Tpy-SZ-jqK" secondAttribute="leading" constant="8" id="HgK-pa-Wxs"/>
+                            <constraint firstItem="KPd-Gy-M3L" firstAttribute="top" secondItem="Tpy-SZ-jqK" secondAttribute="top" id="OBI-Td-ssU"/>
                             <constraint firstItem="Tpy-SZ-jqK" firstAttribute="trailing" secondItem="psl-vZ-Ixp" secondAttribute="trailing" constant="8" id="SvG-x5-yo4"/>
                             <constraint firstItem="Tpy-SZ-jqK" firstAttribute="trailing" secondItem="Vkl-ga-Yvh" secondAttribute="trailing" constant="8" id="dbn-ug-teu"/>
                             <constraint firstItem="Vkl-ga-Yvh" firstAttribute="leading" secondItem="Tpy-SZ-jqK" secondAttribute="leading" constant="8" id="gPr-Gr-T6r"/>
-                            <constraint firstItem="Vkl-ga-Yvh" firstAttribute="top" secondItem="Tpy-SZ-jqK" secondAttribute="top" id="jOG-Yu-UTS"/>
+                            <constraint firstItem="Tpy-SZ-jqK" firstAttribute="trailing" secondItem="CdG-fQ-MO4" secondAttribute="trailing" id="gjB-bS-Kv6"/>
+                            <constraint firstItem="Vkl-ga-Yvh" firstAttribute="top" secondItem="Tpy-SZ-jqK" secondAttribute="top" constant="21" id="jOG-Yu-UTS"/>
                             <constraint firstItem="psl-vZ-Ixp" firstAttribute="height" secondItem="Tpy-SZ-jqK" secondAttribute="height" multiplier="0.25" id="o6v-vF-4xP"/>
                             <constraint firstItem="Vkl-ga-Yvh" firstAttribute="height" secondItem="Tpy-SZ-jqK" secondAttribute="height" multiplier="0.25" id="ouE-b2-mWr"/>
                             <constraint firstItem="psl-vZ-Ixp" firstAttribute="top" secondItem="Vkl-ga-Yvh" secondAttribute="bottom" constant="20" id="qNR-aF-PRV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Tpy-SZ-jqK"/>
                     </view>
-                    <navigationItem key="navigationItem" id="YRO-Hz-jPt"/>
+                    <navigationItem key="navigationItem" prompt="Редагування файлу" id="YRO-Hz-jPt"/>
                     <connections>
                         <outlet property="textView1" destination="Vkl-ga-Yvh" id="C77-iy-J7c"/>
                         <outlet property="textView2" destination="psl-vZ-Ixp" id="ceL-pF-xm3"/>

@@ -20,8 +20,6 @@ class WriteViewController: UIViewController, UITextViewDelegate {
             let text1 = try vc.makeWritableCopy(named: "arrayA.txt", ofResourceFile: "arrayA.txt")
             
             let text2 = try vc.makeWritableCopy(named: "arrayB.txt", ofResourceFile: "arrayB.txt")
-//            let arrayA = vc.prepareArray(text1)
-//            let arrayB = vc.prepareArray(text2)
             textView1.text = text1.description
             textView2.text = text2.description
 
@@ -47,9 +45,7 @@ class WriteViewController: UIViewController, UITextViewDelegate {
             try text2.write(to: stuffFileURL2, atomically: true, encoding: String.Encoding.utf8)
         } catch {
             
-        }
-//        self.navigationController?.popViewController(animated: true)
-        
+        }        
     }
 
     
