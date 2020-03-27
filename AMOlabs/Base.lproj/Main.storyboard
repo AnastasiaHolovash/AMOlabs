@@ -104,25 +104,37 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Лабораторна 3" id="Hf0-Wa-6af">
+                            <tableViewSection headerTitle="Лабораторна 3" footerTitle="" id="Hf0-Wa-6af">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="a2y-t4-IEg">
-                                        <rect key="frame" x="0.0" y="314" width="375" height="1.1920928955078125e-07"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="pBm-KC-T9y" rowHeight="43" style="IBUITableViewCellStyleDefault" id="a2y-t4-IEg">
+                                        <rect key="frame" x="0.0" y="314" width="375" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a2y-t4-IEg" id="H0p-mg-Cq8">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="1.1920928955078125e-07"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="348" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Інтерполяція" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pBm-KC-T9y">
+                                                    <rect key="frame" x="16" y="0.0" width="324" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="UZh-RG-60f" kind="show" id="qCP-o3-msB"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Лабораторна 4" id="Hes-ZW-zcM">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="G9N-av-DVH">
-                                        <rect key="frame" x="0.0" y="370.00000011920929" width="375" height="1.1920928955078125e-07"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="43" id="G9N-av-DVH">
+                                        <rect key="frame" x="0.0" y="413" width="375" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="G9N-av-DVH" id="jSY-GU-n3s">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="1.1920928955078125e-07"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -131,7 +143,7 @@
                             <tableViewSection headerTitle="Лабораторна 5" id="oGY-Vv-isu">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="mMx-fp-s1n">
-                                        <rect key="frame" x="0.0" y="426.00000023841858" width="375" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="512" width="375" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mMx-fp-s1n" id="ckG-mT-Lo4">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -139,7 +151,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="197" id="T9Y-So-hVm">
-                                        <rect key="frame" x="0.0" y="469.50000023841858" width="375" height="197"/>
+                                        <rect key="frame" x="0.0" y="555.5" width="375" height="197"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="T9Y-So-hVm" id="0BI-3u-iIh">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="197"/>
@@ -183,7 +195,133 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A83-bY-UTd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-639.20000000000005" y="129.31034482758622"/>
+            <point key="canvasLocation" x="-1060" y="620.68965517241384"/>
+        </scene>
+        <!--Схема Ейткена-->
+        <scene sceneID="TgI-aG-fD5">
+            <objects>
+                <viewController storyboardIdentifier="Lab3Task1ViewController" id="UZh-RG-60f" customClass="Lab3Task1ViewController" customModule="AMOlabs" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hit-D2-2Px">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="c7h-Hv-cHO">
+                                <rect key="frame" x="8" y="88" width="359" height="690"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="За варіантом: [a, b] = [0, 5]" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="orV-PB-Mrk">
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="69"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IQc-48-Jkw">
+                                        <rect key="frame" x="0.0" y="69" width="359" height="48.333333333333343"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rkk-bV-7WL">
+                                                <rect key="frame" x="0.0" y="0.0" width="143.66666666666666" height="48.333333333333336"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="f(x) =" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNc-T7-BYB">
+                                                <rect key="frame" x="143.66666666666666" y="0.0" width="71.666666666666657" height="48.333333333333336"/>
+                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="27"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="f(x)" translatesAutoresizingMaskIntoConstraints="NO" id="jlz-Yv-EpL">
+                                                <rect key="frame" x="215.33333333333337" y="0.0" width="143.66666666666663" height="48.333333333333336"/>
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="rkk-bV-7WL" firstAttribute="width" secondItem="IQc-48-Jkw" secondAttribute="width" multiplier="0.4" id="KNt-kX-if7"/>
+                                            <constraint firstItem="bNc-T7-BYB" firstAttribute="width" secondItem="IQc-48-Jkw" secondAttribute="width" multiplier="0.2" id="gED-St-jLd"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NMg-LS-rV2">
+                                        <rect key="frame" x="0.0" y="117.33333333333333" width="359" height="48.333333333333329"/>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ojq-MH-BJB">
+                                        <rect key="frame" x="0.0" y="165.66666666666666" width="359" height="48.333333333333343"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B5n-VR-KKy">
+                                        <rect key="frame" x="0.0" y="214" width="359" height="138"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Графік"/>
+                                        <connections>
+                                            <action selector="didPressShowChart:" destination="UZh-RG-60f" eventType="touchUpInside" id="g5V-7C-Cns"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRs-bg-5UJ">
+                                        <rect key="frame" x="0.0" y="352" width="359" height="338"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="IQc-48-Jkw" firstAttribute="height" secondItem="c7h-Hv-cHO" secondAttribute="height" multiplier="0.07" id="90W-of-aRb"/>
+                                    <constraint firstItem="ojq-MH-BJB" firstAttribute="height" secondItem="NMg-LS-rV2" secondAttribute="height" id="OcO-bD-0tE"/>
+                                    <constraint firstItem="orV-PB-Mrk" firstAttribute="height" secondItem="c7h-Hv-cHO" secondAttribute="height" multiplier="0.1" id="f32-t8-HmZ"/>
+                                    <constraint firstItem="NMg-LS-rV2" firstAttribute="height" secondItem="IQc-48-Jkw" secondAttribute="height" id="hK7-rf-3kn"/>
+                                    <constraint firstItem="B5n-VR-KKy" firstAttribute="height" secondItem="c7h-Hv-cHO" secondAttribute="height" multiplier="0.2" id="pwZ-Md-ivA"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="eWA-ar-O9T" firstAttribute="bottom" secondItem="c7h-Hv-cHO" secondAttribute="bottom" id="0g7-Rv-hrT"/>
+                            <constraint firstItem="c7h-Hv-cHO" firstAttribute="top" secondItem="eWA-ar-O9T" secondAttribute="top" id="BH2-cz-03s"/>
+                            <constraint firstItem="eWA-ar-O9T" firstAttribute="trailing" secondItem="c7h-Hv-cHO" secondAttribute="trailing" constant="8" id="lMT-yl-zPa"/>
+                            <constraint firstItem="c7h-Hv-cHO" firstAttribute="leading" secondItem="eWA-ar-O9T" secondAttribute="leading" constant="8" id="wyF-Zl-dIC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eWA-ar-O9T"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Схема Ейткена" largeTitleDisplayMode="always" id="Mew-Ma-gtt"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cIy-qX-wNZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="173.59999999999999" y="1566.5024630541873"/>
+        </scene>
+        <!--Lab3 Chart View Controller-->
+        <scene sceneID="r1h-0h-XdV">
+            <objects>
+                <viewController storyboardIdentifier="Lab3ChartViewController" id="tCM-Kb-fWf" customClass="Lab3ChartViewController" customModule="AMOlabs" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yot-LT-AD8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kBD-Tk-pJA" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="44.000000000000028" width="375" height="474.66666666666674"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aBq-YO-SZU" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="518.66666666666663" width="375" height="259.33333333333337"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="yil-US-cxI" firstAttribute="bottom" secondItem="kBD-Tk-pJA" secondAttribute="bottom" multiplier="1.5" id="2ei-gR-yAf"/>
+                            <constraint firstItem="kBD-Tk-pJA" firstAttribute="top" secondItem="yil-US-cxI" secondAttribute="top" id="5Oc-fh-2NS"/>
+                            <constraint firstItem="yil-US-cxI" firstAttribute="bottom" secondItem="aBq-YO-SZU" secondAttribute="bottom" id="DA5-D9-T7e"/>
+                            <constraint firstItem="aBq-YO-SZU" firstAttribute="leading" secondItem="yil-US-cxI" secondAttribute="leading" id="cd4-fH-AUQ"/>
+                            <constraint firstItem="yil-US-cxI" firstAttribute="trailing" secondItem="aBq-YO-SZU" secondAttribute="trailing" id="fHy-Th-v1O"/>
+                            <constraint firstItem="yil-US-cxI" firstAttribute="trailing" secondItem="kBD-Tk-pJA" secondAttribute="trailing" id="jA9-j0-HUo"/>
+                            <constraint firstItem="aBq-YO-SZU" firstAttribute="top" secondItem="kBD-Tk-pJA" secondAttribute="bottom" id="knY-kp-Gih"/>
+                            <constraint firstItem="kBD-Tk-pJA" firstAttribute="leading" secondItem="yil-US-cxI" secondAttribute="leading" id="lYk-JS-THB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="yil-US-cxI"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="RpY-60-zU7"/>
+                    <connections>
+                        <outlet property="chartView" destination="kBD-Tk-pJA" id="r4L-RQ-R7j"/>
+                        <outlet property="chartView2" destination="aBq-YO-SZU" id="h7b-mS-KnT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XY0-Gz-5q4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="902" y="1567"/>
         </scene>
         <!--Сортування Хоара-->
         <scene sceneID="N3t-8y-cXW">
@@ -343,7 +481,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0oz-qG-kCx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="46" y="867"/>
+            <point key="canvasLocation" x="175" y="867"/>
         </scene>
         <!--Chart Image View Controller-->
         <scene sceneID="xFL-To-atM">
@@ -1169,7 +1307,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lHx-Ue-CXb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1484" y="130"/>
+            <point key="canvasLocation" x="-1884" y="621"/>
         </scene>
     </scenes>
     <resources>
@@ -1177,5 +1315,6 @@
         <image name="Lab1_Task2" width="430" height="165"/>
         <image name="Lab1_Task3" width="336" height="163"/>
         <image name="Lab1_task1" width="328" height="117"/>
+        <image name="f(x)" width="261" height="103"/>
     </resources>
 </document>

@@ -151,8 +151,6 @@ class Lab2ViewController: UIViewController, UITextFieldDelegate {
             for _ in 0..<nn {
                 arrayA.append((Double.random(in: 0..<500).rounded(digits: 2)))
             }
-            
-            
             let start = Date()
             quicksortHoare(&arrayA, low: 0, high: arrayA.count - 1)
             let end = Date()

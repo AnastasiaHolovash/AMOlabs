@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2CE11C5B621FBEA643D5A48A /* libPods-AMOlabs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B4BB4A1C41B20AAA5BE51F6 /* libPods-AMOlabs.a */; };
+		5D231873242E2C140022022B /* Lab3ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D231872242E2C140022022B /* Lab3ChartViewController.swift */; };
+		5D83C7A8242BEF5800FC7EAC /* Lab3Task1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D83C7A7242BEF5800FC7EAC /* Lab3Task1ViewController.swift */; };
 		5D8BC81A23FAB68E005E8235 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8BC81923FAB68E005E8235 /* AppDelegate.swift */; };
 		5D8BC81C23FAB68E005E8235 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8BC81B23FAB68E005E8235 /* SceneDelegate.swift */; };
 		5D8BC81E23FAB68E005E8235 /* Lab1Task1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8BC81D23FAB68E005E8235 /* Lab1Task1ViewController.swift */; };
@@ -46,6 +48,8 @@
 		2B4BB4A1C41B20AAA5BE51F6 /* libPods-AMOlabs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AMOlabs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3682B6EC8BBB78E2A8E78390 /* Pods-AMOlabs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AMOlabs.release.xcconfig"; path = "Target Support Files/Pods-AMOlabs/Pods-AMOlabs.release.xcconfig"; sourceTree = "<group>"; };
 		43683C86547273F290A6F90E /* Pods-AMOlabs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AMOlabs.debug.xcconfig"; path = "Target Support Files/Pods-AMOlabs/Pods-AMOlabs.debug.xcconfig"; sourceTree = "<group>"; };
+		5D231872242E2C140022022B /* Lab3ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab3ChartViewController.swift; sourceTree = "<group>"; };
+		5D83C7A7242BEF5800FC7EAC /* Lab3Task1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab3Task1ViewController.swift; sourceTree = "<group>"; };
 		5D8BC81623FAB68E005E8235 /* AMOlabs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AMOlabs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D8BC81923FAB68E005E8235 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D8BC81B23FAB68E005E8235 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +84,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D83C7A9242BEF8C00FC7EAC /* Lab3 */ = {
+			isa = PBXGroup;
+			children = (
+				5D83C7A7242BEF5800FC7EAC /* Lab3Task1ViewController.swift */,
+				5D231872242E2C140022022B /* Lab3ChartViewController.swift */,
+			);
+			path = Lab3;
+			sourceTree = "<group>";
+		};
 		5D8BC80D23FAB68E005E8235 = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +121,7 @@
 				5D95AA4624042E2200DC716C /* Extensions.swift */,
 				5D95AA442404160700DC716C /* Lab1 */,
 				5D95AA452404162500DC716C /* Lab2 */,
+				5D83C7A9242BEF8C00FC7EAC /* Lab3 */,
 				5D8BC81F23FAB68E005E8235 /* Main.storyboard */,
 				5D8BC82223FAB695005E8235 /* Assets.xcassets */,
 				5DFF1D122409163300A0F65B /* arrayA.txt */,
@@ -266,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D95AA3D23FEAC8A00DC716C /* Lab1Task2ViewController.swift in Sources */,
+				5D83C7A8242BEF5800FC7EAC /* Lab3Task1ViewController.swift in Sources */,
 				5D95AA3F23FFDB7F00DC716C /* Lab1Task3ViewController.swift in Sources */,
 				5D8C6A9D24068A0C0051639A /* Functions.swift in Sources */,
 				5D8C6A9F240715A60051639A /* ChartImageViewController.swift in Sources */,
@@ -273,6 +288,7 @@
 				5D95AA4724042E2200DC716C /* Extensions.swift in Sources */,
 				5DFF1D112407C75200A0F65B /* WriteViewController.swift in Sources */,
 				5D95AA432403F0E300DC716C /* ImageViewController.swift in Sources */,
+				5D231873242E2C140022022B /* Lab3ChartViewController.swift in Sources */,
 				5D95AA412401DA9600DC716C /* Lab2ViewController.swift in Sources */,
 				5D8BC81A23FAB68E005E8235 /* AppDelegate.swift in Sources */,
 				5D8BC81C23FAB68E005E8235 /* SceneDelegate.swift in Sources */,
