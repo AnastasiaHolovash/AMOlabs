@@ -38,7 +38,7 @@ class Lab3ChartViewController: UIViewController, ChartViewDelegate {
         chartView.setScaleEnabled(true)
         chartView.pinchZoomEnabled = true
         
-        chartView.xAxis.gridLineDashLengths = [10, 10]
+        chartView.xAxis.gridLineDashLengths = [3, 1]
         chartView.xAxis.gridLineDashPhase = 0
         
         let leftAxis = chartView.leftAxis
@@ -48,9 +48,9 @@ class Lab3ChartViewController: UIViewController, ChartViewDelegate {
         leftAxis.axisMaximum = 3.5
         
         /// Minimum of y
-        leftAxis.axisMinimum = -1
+        leftAxis.axisMinimum = -0.5
         
-        leftAxis.gridLineDashLengths = [3, 3]
+        leftAxis.gridLineDashLengths = [3, 1]
         leftAxis.drawLimitLinesBehindDataEnabled = true
         
         chartView.rightAxis.enabled = false
@@ -68,19 +68,19 @@ class Lab3ChartViewController: UIViewController, ChartViewDelegate {
         chartView2.setScaleEnabled(true)
         chartView2.pinchZoomEnabled = true
         
-        chartView2.xAxis.gridLineDashLengths = [10, 10]
+        chartView2.xAxis.gridLineDashLengths = [3, 1]
         chartView2.xAxis.gridLineDashPhase = 0
         
         let leftAxis = chartView2.leftAxis
         leftAxis.removeAllLimitLines()
 
         /// Maximum of y
-        leftAxis.axisMaximum = 1
+        leftAxis.axisMaximum = 0.035
         
         /// Minimum of y
-        leftAxis.axisMinimum = -1
+        leftAxis.axisMinimum = -0.025
         
-        leftAxis.gridLineDashLengths = [1, 1]
+        leftAxis.gridLineDashLengths = [3, 1]
         leftAxis.drawLimitLinesBehindDataEnabled = true
         
         chartView2.rightAxis.enabled = false
@@ -110,8 +110,6 @@ class Lab3ChartViewController: UIViewController, ChartViewDelegate {
         set1.drawCircleHoleEnabled = false
         set1.mode = .cubicBezier
 
-        
-        
         // Second line (test)
         let set2 = LineChartDataSet(entries: valuesTest, label: "Функція")
         set2.drawIconsEnabled = false
