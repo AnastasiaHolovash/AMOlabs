@@ -11,8 +11,15 @@ import Charts
 
 class Lab3Task1ViewController: UIViewController {
 
+    @IBOutlet weak var interpolationDegreeTextField: UITextField!
+    @IBOutlet weak var xTextField: UITextField!
+    @IBOutlet weak var segmentControl: UISegmentedControl!
+    
+    
     let a = 0.0
     let b = 5.0
+    let degreeOfInterpolation = 10
+    let x = 0.5
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,15 +28,15 @@ class Lab3Task1ViewController: UIViewController {
 //        let x = [-1.0, 0.0, 2.0, 4.0,  6.0, 9.0]
 //        let y = [-2.0, 3.0, 1.0, 7.0, -1.0, 5.0]
 //        aitken(x: x, y: y, x0: -0.5)
-        var interYArray: [Double] = []
-        for i in valueOfTheGivenFunction(10).x {
-            interYArray.append(aitken(x: valueOfTheGivenFunction(10).x, y: valueOfTheGivenFunction(10).y, x0: i + 0.5))
-        }
+//        var interYArray: [Double] = []
+//        for i in valueOfTheGivenFunction(10).x {
+//            interYArray.append(aitken(x: valueOfTheGivenFunction(10).x, y: valueOfTheGivenFunction(10).y, x0: i + 0.5))
+//        }
 //         aitken2(x: x, y: y, x0: -0.5)
-        print("DIFERENS")
-        for i in 0..<valueOfTheGivenFunction(10).y.count {
-            print(valueOfTheGivenFunction(10).y[i] - interYArray[i])
-        }
+//        print("DIFERENS")
+//        for i in 0..<valueOfTheGivenFunction(10).y.count {
+//            print(valueOfTheGivenFunction(10).y[i] - interYArray[i])
+//        }
     }
     
     
@@ -40,10 +47,21 @@ class Lab3Task1ViewController: UIViewController {
         var x: [Double] = []
         /// Масив значень ігриків
         var y: [Double] = []
-        for i in 0...accuracy {
-            x.append(Double(a) + h * Double(i))
-            y.append(exp(sin(x[i])))
-//            y.append(1.0 / (0.5 + pow(x[i], 2)))
+        switch segmentControl.selectedSegmentIndex {
+        case 0:
+            for i in 0...accuracy {
+                x.append(Double(a) + h * Double(i))
+                y.append(exp(sin(x[i])))
+            }
+        case 1:
+            for i in 0...accuracy {
+                x.append(Double(a) + h * Double(i))
+                y.append(sin(x[i]))
+    //          y.append(1.0 / (0.5 + pow(x[i], 2)))
+            }
+        default:
+            x = []
+            y = []
         }
 //        print(x)
 //        print(y)
@@ -154,10 +172,26 @@ class Lab3Task1ViewController: UIViewController {
         }
         return result
     }
+    @IBAction func didChangeSegmentControl(_ sender: UISegmentedControl) {
+        
+    }
+    
+    @IBAction func didPressShowTable(_ sender: UIButton) {
+        
+        guard let tableVC = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ErrorTableViewViewController") as? ErrorTableViewViewController else { return }
+                    
+                DispatchQueue.main.async {
+                    
+        //            chartVC.nSegue = self.sliderValue
+
+                    self.navigationController?.pushViewController(tableVC, animated: true)
+                }
+        
+    }
     
     @IBAction func didPressShowChart(_ sender: UIButton) {
         
-        let formulaValuesXY = valueOfTheGivenFunction(10)
+//        let formulaValuesXY = valueOfTheGivenFunction(10)
         let chartValuesXY = valueOfTheGivenFunction(1000)
 //        let arrayX = valuesXY.x
 //        let arrayY = valuesXY.y
@@ -177,6 +211,16 @@ class Lab3Task1ViewController: UIViewController {
         let values2 = dataForChart(arrayX: chartValuesXY.x, arrayY: interpolationYArray)
         let valuesMistake = dataForChart(arrayX: chartValuesXY.x, arrayY: estimationOfInterpolationError)
         
+        var mathFunc: Bool = true
+        switch segmentControl.selectedSegmentIndex {
+        case 0:
+            mathFunc = true
+        case 1:
+            mathFunc = false
+        default:
+            mathFunc = true
+        }
+    
         
         guard let chartVC = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "Lab3ChartViewController") as? Lab3ChartViewController else { return }
                 
@@ -185,12 +229,13 @@ class Lab3Task1ViewController: UIViewController {
                 chartVC.valuesSegue = values
                 chartVC.valuesSegue2 = values2
                 chartVC.valuesSegueMistake = valuesMistake
+                chartVC.funcsion = mathFunc
     //            chartVC.nSegue = self.sliderValue
 
                 self.navigationController?.pushViewController(chartVC, animated: true)
             }
+        
     }
-    
 }
 
 extension Sequence where Iterator.Element: SignedNumeric & Comparable {

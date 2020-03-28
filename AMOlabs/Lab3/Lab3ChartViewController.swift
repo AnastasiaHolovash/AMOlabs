@@ -17,11 +17,16 @@ class Lab3ChartViewController: UIViewController, ChartViewDelegate {
     var valuesSegue2: [ChartDataEntry]?
     var valuesSegueMistake: [ChartDataEntry]?
     var nSegue: Int?
+    var funcsion: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "Графіки"
+        if funcsion {
+            self.title = "Графік e^(sin(x))"
+        } else {
+            self.title = "Графік sin(x)"
+        }
         
         setupChartView()
         setupChartView2()
@@ -44,11 +49,20 @@ class Lab3ChartViewController: UIViewController, ChartViewDelegate {
         let leftAxis = chartView.leftAxis
         leftAxis.removeAllLimitLines()
 
-        /// Maximum of y
-        leftAxis.axisMaximum = 3.5
+        if funcsion {
+            /// Maximum of y
+            leftAxis.axisMaximum = 3.5
+            
+            /// Minimum of y
+            leftAxis.axisMinimum = -0.5
+        } else {
+            /// Maximum of y
+            leftAxis.axisMaximum = 1.1
+            
+            /// Minimum of y
+            leftAxis.axisMinimum = -1.1
+        }
         
-        /// Minimum of y
-        leftAxis.axisMinimum = -0.5
         
         leftAxis.gridLineDashLengths = [3, 1]
         leftAxis.drawLimitLinesBehindDataEnabled = true
@@ -73,12 +87,21 @@ class Lab3ChartViewController: UIViewController, ChartViewDelegate {
         
         let leftAxis = chartView2.leftAxis
         leftAxis.removeAllLimitLines()
-
-        /// Maximum of y
-        leftAxis.axisMaximum = 0.035
         
-        /// Minimum of y
-        leftAxis.axisMinimum = -0.025
+        if funcsion {
+            /// Maximum of y
+            leftAxis.axisMaximum = 0.035
+            
+            /// Minimum of y
+            leftAxis.axisMinimum = -0.025
+        } else {
+            /// Maximum of y
+            leftAxis.axisMaximum = 0.000005
+            
+            /// Minimum of y
+            leftAxis.axisMinimum = -0.000005
+        }
+        
         
         leftAxis.gridLineDashLengths = [3, 1]
         leftAxis.drawLimitLinesBehindDataEnabled = true

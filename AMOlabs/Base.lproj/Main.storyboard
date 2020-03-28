@@ -254,6 +254,9 @@
                                             <segment title="sin(x)"/>
                                         </segments>
                                         <color key="selectedSegmentTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="didChangeSegmentControl:" destination="UZh-RG-60f" eventType="valueChanged" id="lKP-dt-fmn"/>
+                                        </connections>
                                     </segmentedControl>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vCb-zK-wxa">
                                         <rect key="frame" x="0.0" y="260" width="359" height="41.666666666666686"/>
@@ -301,6 +304,9 @@
                                         <rect key="frame" x="0.0" y="424.66666666666663" width="359" height="69"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="Результат оцінки похибки"/>
+                                        <connections>
+                                            <action selector="didPressShowTable:" destination="UZh-RG-60f" eventType="touchUpInside" id="Rhm-lv-dVA"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B5n-VR-KKy">
                                         <rect key="frame" x="0.0" y="505.66666666666663" width="359" height="69"/>
@@ -338,6 +344,11 @@
                         <viewLayoutGuide key="safeArea" id="eWA-ar-O9T"/>
                     </view>
                     <navigationItem key="navigationItem" title="Схема Ейткена" largeTitleDisplayMode="always" id="Mew-Ma-gtt"/>
+                    <connections>
+                        <outlet property="interpolationDegreeTextField" destination="uly-Jj-I5O" id="1iJ-EK-lQ3"/>
+                        <outlet property="segmentControl" destination="MLt-DY-qm8" id="TeO-xL-HWm"/>
+                        <outlet property="xTextField" destination="Fsg-d6-fVY" id="wxN-EN-7hl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cIy-qX-wNZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -395,7 +406,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Cell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="9CW-cb-upY">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Cell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="9CW-cb-upY" customClass="ErrorTableViewCell" customModule="AMOlabs" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9CW-cb-upY" id="RtB-Do-wGq">
@@ -442,6 +453,12 @@
                                                 <constraint firstItem="k9Q-qs-Zu8" firstAttribute="centerX" secondItem="RtB-Do-wGq" secondAttribute="centerX" multiplier="0.1" id="w0Z-JO-mB9"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="coefficientLabel" destination="aAv-RF-fuS" id="nuV-Jk-Dvd"/>
+                                            <outlet property="differenceLabel" destination="yEb-ky-Mbk" id="WCB-Yy-Npx"/>
+                                            <outlet property="errorLabel" destination="eZ0-S9-kmJ" id="Gzo-qd-JJZ"/>
+                                            <outlet property="nLabel" destination="k9Q-qs-Zu8" id="E66-Oh-PHu"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -456,12 +473,7 @@
                         <viewLayoutGuide key="safeArea" id="VpV-0V-iqp"/>
                     </view>
                     <connections>
-                        <outlet property="coefficientLabel" destination="aAv-RF-fuS" id="vGH-43-ubK"/>
-                        <outlet property="differenceLabel" destination="yEb-ky-Mbk" id="Jlf-wC-vXZ"/>
-                        <outlet property="errorLabel" destination="eZ0-S9-kmJ" id="i5z-h1-YCL"/>
-                        <outlet property="errorTableViewCell" destination="9CW-cb-upY" id="GqW-A1-6Qv"/>
                         <outlet property="errorTableview" destination="0ZY-ic-Mpb" id="MlS-kZ-8aj"/>
-                        <outlet property="nLabel" destination="k9Q-qs-Zu8" id="WNo-Gd-s2x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j4K-pb-FhW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
