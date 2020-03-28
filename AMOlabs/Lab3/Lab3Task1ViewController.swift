@@ -18,8 +18,8 @@ class Lab3Task1ViewController: UIViewController {
     
     let a = 0.0
     let b = 5.0
-    let degreeOfInterpolation = 10
-    let x = 0.5
+    var degreeOfInterpolation = 10
+    var x = 0.5
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,6 +86,25 @@ class Lab3Task1ViewController: UIViewController {
             }
         }
         return p[0]
+    }
+    
+    func lagrang(arrayX: [Double], arrayY: [Double], t: Double) -> Double {
+        var z: Double = 0
+        
+        for j in 0..<arrayY.count {
+            var p1: Double = 1
+            var p2: Double = 1
+            
+            for i in 0..<arrayX.count {
+                if i != j {
+                    p1 = p1 * (t - arrayX[i])
+                    p2 = p2 * (arrayX[j] - arrayX[i])
+                }
+            }
+            z = z + (arrayY[j] * (p1 / p2))
+        }
+            
+        return z
     }
     
 //    func aitken2(x: [Double], y: [Double], x0: Double) -> Double{
@@ -161,7 +180,8 @@ class Lab3Task1ViewController: UIViewController {
         let formulaValuesXY = valueOfTheGivenFunction(count)
         var result: [Double] = []
         for i in chartValuesX {
-            result.append(aitken(x: formulaValuesXY.x, y:formulaValuesXY.y, x0: i))
+            result.append(aitken(x: formulaValuesXY.x, y: formulaValuesXY.y, x0: i))
+//            result.append(lagrang(arrayX: formulaValuesXY.x, arrayY: formulaValuesXY.y, t: i))
         }
         return result
     }
@@ -190,6 +210,7 @@ class Lab3Task1ViewController: UIViewController {
     }
     
     @IBAction func didPressShowChart(_ sender: UIButton) {
+        degreeOfInterpolation = Int(interpolationDegreeTextField.text ?? "10") ?? 10
         
 //        let formulaValuesXY = valueOfTheGivenFunction(10)
         let chartValuesXY = valueOfTheGivenFunction(1000)
@@ -199,9 +220,9 @@ class Lab3Task1ViewController: UIViewController {
 //        for i in chartValuesXY.x {
 //            interYArray.append(aitken(x: formulaValuesXY.x, y:formulaValuesXY.y, x0: i))
 //        }
-        let interpolationYArray = interpolationArray(chartValuesX: chartValuesXY.x, count: 10)
-        let interpolationErrorYArray = interpolationArray(chartValuesX: chartValuesXY.x, count: 11)
-        let interpolationErrorErrorYArray = interpolationArray(chartValuesX: chartValuesXY.x, count: 12)
+        let interpolationYArray = interpolationArray(chartValuesX: chartValuesXY.x, count: degreeOfInterpolation)
+        let interpolationErrorYArray = interpolationArray(chartValuesX: chartValuesXY.x, count: degreeOfInterpolation + 1)
+        let interpolationErrorErrorYArray = interpolationArray(chartValuesX: chartValuesXY.x, count: degreeOfInterpolation + 2)
 
         let estimationOfInterpolationError = difference(interpolationYArray, interpolationErrorYArray)
         let estimationOfInterpolationErrorEstimation = difference(interpolationErrorYArray, interpolationErrorErrorYArray)

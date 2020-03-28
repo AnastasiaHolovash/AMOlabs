@@ -49,19 +49,19 @@ class Lab3ChartViewController: UIViewController, ChartViewDelegate {
         let leftAxis = chartView.leftAxis
         leftAxis.removeAllLimitLines()
 
-        if funcsion {
-            /// Maximum of y
-            leftAxis.axisMaximum = 3.5
-            
-            /// Minimum of y
-            leftAxis.axisMinimum = -0.5
-        } else {
-            /// Maximum of y
-            leftAxis.axisMaximum = 1.1
-            
-            /// Minimum of y
-            leftAxis.axisMinimum = -1.1
-        }
+//        if funcsion {
+//            /// Maximum of y
+//            leftAxis.axisMaximum = 3.5
+//
+//            /// Minimum of y
+//            leftAxis.axisMinimum = -0.5
+//        } else {
+//            /// Maximum of y
+//            leftAxis.axisMaximum = 1.1
+//
+//            /// Minimum of y
+//            leftAxis.axisMinimum = -1.1
+//        }
         
         
         leftAxis.gridLineDashLengths = [3, 1]
@@ -88,19 +88,19 @@ class Lab3ChartViewController: UIViewController, ChartViewDelegate {
         let leftAxis = chartView2.leftAxis
         leftAxis.removeAllLimitLines()
         
-        if funcsion {
-            /// Maximum of y
-            leftAxis.axisMaximum = 0.035
-            
-            /// Minimum of y
-            leftAxis.axisMinimum = -0.025
-        } else {
-            /// Maximum of y
-            leftAxis.axisMaximum = 0.000005
-            
-            /// Minimum of y
-            leftAxis.axisMinimum = -0.000005
-        }
+//        if funcsion {
+//            /// Maximum of y
+//            leftAxis.axisMaximum = 0.035
+//            
+//            /// Minimum of y
+//            leftAxis.axisMinimum = -0.025
+//        } else {
+//            /// Maximum of y
+//            leftAxis.axisMaximum = 0.000005
+//            
+//            /// Minimum of y
+//            leftAxis.axisMinimum = -0.000005
+//        }
         
         
         leftAxis.gridLineDashLengths = [3, 1]
