@@ -113,4 +113,20 @@ public extension Int {
     
 }
 
+//MARK: For Lab3
+extension Sequence where Iterator.Element: SignedNumeric & Comparable {
 
+    /// Finds the nearest (offset, element) to the specified element.
+    func nearestOffsetAndElement(to toElement: Iterator.Element) -> (offset: Int, element: Iterator.Element) {
+
+        guard let nearest = enumerated().min( by: {
+            let left = $0.1 - toElement
+            let right = $1.1 - toElement
+            return abs(left) <= abs(right)
+        } ) else {
+            return (offset: 0, element: toElement)
+        }
+
+        return nearest
+    }
+}

@@ -12,6 +12,7 @@
 		5D231875242F93460022022B /* ErrorTableViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D231874242F93460022022B /* ErrorTableViewViewController.swift */; };
 		5D231877242FADEE0022022B /* ErrorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D231876242FADED0022022B /* ErrorTableViewCell.swift */; };
 		5D63EC132431082000A6A1DA /* FormattingExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D63EC122431082000A6A1DA /* FormattingExtensions.swift */; };
+		5D63EC1524311AA300A6A1DA /* Lab3Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D63EC1424311AA300A6A1DA /* Lab3Functions.swift */; };
 		5D83C7A8242BEF5800FC7EAC /* Lab3Task1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D83C7A7242BEF5800FC7EAC /* Lab3Task1ViewController.swift */; };
 		5D8BC81A23FAB68E005E8235 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8BC81923FAB68E005E8235 /* AppDelegate.swift */; };
 		5D8BC81C23FAB68E005E8235 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8BC81B23FAB68E005E8235 /* SceneDelegate.swift */; };
@@ -55,6 +56,7 @@
 		5D231874242F93460022022B /* ErrorTableViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorTableViewViewController.swift; sourceTree = "<group>"; };
 		5D231876242FADED0022022B /* ErrorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorTableViewCell.swift; sourceTree = "<group>"; };
 		5D63EC122431082000A6A1DA /* FormattingExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattingExtensions.swift; sourceTree = "<group>"; };
+		5D63EC1424311AA300A6A1DA /* Lab3Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab3Functions.swift; sourceTree = "<group>"; };
 		5D83C7A7242BEF5800FC7EAC /* Lab3Task1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab3Task1ViewController.swift; sourceTree = "<group>"; };
 		5D8BC81623FAB68E005E8235 /* AMOlabs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AMOlabs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D8BC81923FAB68E005E8235 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				5D83C7A7242BEF5800FC7EAC /* Lab3Task1ViewController.swift */,
+				5D63EC1424311AA300A6A1DA /* Lab3Functions.swift */,
 				5D231872242E2C140022022B /* Lab3ChartViewController.swift */,
 				5D231874242F93460022022B /* ErrorTableViewViewController.swift */,
 				5D231876242FADED0022022B /* ErrorTableViewCell.swift */,
@@ -303,6 +306,7 @@
 				5D231873242E2C140022022B /* Lab3ChartViewController.swift in Sources */,
 				5D95AA412401DA9600DC716C /* Lab2ViewController.swift in Sources */,
 				5D8BC81A23FAB68E005E8235 /* AppDelegate.swift in Sources */,
+				5D63EC1524311AA300A6A1DA /* Lab3Functions.swift in Sources */,
 				5D8BC81C23FAB68E005E8235 /* SceneDelegate.swift in Sources */,
 				5D8C6AA1240715C70051639A /* ChartViewController.swift in Sources */,
 			);
