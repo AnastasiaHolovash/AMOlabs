@@ -238,28 +238,29 @@
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xxY-u5-4V1">
-                                        <rect key="frame" x="0.0" y="134.33333333333334" width="359" height="48.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="134.33333333333334" width="359" height="34.666666666666657"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Функція для інтерполяції:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ojq-MH-BJB">
-                                        <rect key="frame" x="0.0" y="194.66666666666669" width="359" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="181" width="359" height="34.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="MLt-DY-qm8">
-                                        <rect key="frame" x="0.0" y="206.66666666666669" width="359" height="42.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="227.33333333333331" width="359" height="42.333333333333314"/>
+                                        <color key="backgroundColor" red="0.61075184769863011" green="0.21058425106027401" blue="0.27623727920000002" alpha="0.21398758561643835" colorSpace="custom" customColorSpace="sRGB"/>
                                         <segments>
                                             <segment title="e^(sin(x))"/>
                                             <segment title="sin(x)"/>
                                         </segments>
-                                        <color key="selectedSegmentTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="selectedSegmentTintColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="0.90437714041095896" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="didChangeSegmentControl:" destination="UZh-RG-60f" eventType="valueChanged" id="lKP-dt-fmn"/>
                                         </connections>
                                     </segmentedControl>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vCb-zK-wxa">
-                                        <rect key="frame" x="0.0" y="260" width="359" height="41.666666666666686"/>
+                                        <rect key="frame" x="0.0" y="280.66666666666669" width="359" height="41.666666666666686"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Порядок інтерполяції:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EYL-YA-wXV">
                                                 <rect key="frame" x="0.0" y="0.0" width="186.66666666666666" height="41.666666666666664"/>
@@ -278,7 +279,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D97-R8-Orj">
-                                        <rect key="frame" x="0.0" y="313.66666666666669" width="359" height="41.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="334.33333333333331" width="359" height="41.333333333333314"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x :" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQx-gC-Vwe">
                                                 <rect key="frame" x="0.0" y="0.0" width="186.66666666666666" height="41.333333333333336"/>
@@ -297,40 +298,69 @@
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dWJ-QX-yLT">
-                                        <rect key="frame" x="0.0" y="367" width="359" height="45.666666666666686"/>
+                                        <rect key="frame" x="0.0" y="387.66666666666669" width="359" height="31.666666666666686"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRs-bg-5UJ">
-                                        <rect key="frame" x="0.0" y="424.66666666666663" width="359" height="69"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <state key="normal" title="Результат оцінки похибки"/>
-                                        <connections>
-                                            <action selector="didPressShowTable:" destination="UZh-RG-60f" eventType="touchUpInside" id="Rhm-lv-dVA"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B5n-VR-KKy">
-                                        <rect key="frame" x="0.0" y="505.66666666666663" width="359" height="69"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <state key="normal" title="Графік"/>
-                                        <connections>
-                                            <action selector="didPressShowChart:" destination="UZh-RG-60f" eventType="touchUpInside" id="g5V-7C-Cns"/>
-                                        </connections>
-                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LvD-9d-0Qo">
+                                        <rect key="frame" x="0.0" y="431.33333333333337" width="359" height="48.333333333333314"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRs-bg-5UJ">
+                                                <rect key="frame" x="36" y="0.0" width="287" height="48.333333333333336"/>
+                                                <color key="backgroundColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="0.90437714039999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <state key="normal" title="Результат оцінки похибки"/>
+                                                <connections>
+                                                    <action selector="didPressShowTable:" destination="UZh-RG-60f" eventType="touchUpInside" id="Rhm-lv-dVA"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="fRs-bg-5UJ" firstAttribute="height" secondItem="LvD-9d-0Qo" secondAttribute="height" id="40O-6b-BzT"/>
+                                            <constraint firstItem="fRs-bg-5UJ" firstAttribute="centerY" secondItem="LvD-9d-0Qo" secondAttribute="centerY" id="8Gc-uo-hm0"/>
+                                            <constraint firstItem="fRs-bg-5UJ" firstAttribute="width" secondItem="LvD-9d-0Qo" secondAttribute="width" multiplier="0.8" id="MOf-Qg-Uds"/>
+                                            <constraint firstItem="fRs-bg-5UJ" firstAttribute="centerX" secondItem="LvD-9d-0Qo" secondAttribute="centerX" id="evZ-K5-mBc"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IbM-xB-ulM">
+                                        <rect key="frame" x="0.0" y="491.66666666666657" width="359" height="48.333333333333314"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B5n-VR-KKy">
+                                                <rect key="frame" x="36" y="0.0" width="287" height="48.333333333333336"/>
+                                                <color key="backgroundColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="0.90437714039999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <state key="normal" title="Графік"/>
+                                                <connections>
+                                                    <action selector="didPressShowChart:" destination="UZh-RG-60f" eventType="touchUpInside" id="g5V-7C-Cns"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="B5n-VR-KKy" firstAttribute="width" secondItem="IbM-xB-ulM" secondAttribute="width" multiplier="0.8" id="gQx-fP-Jbp"/>
+                                            <constraint firstItem="B5n-VR-KKy" firstAttribute="centerY" secondItem="IbM-xB-ulM" secondAttribute="centerY" id="ktQ-Ac-5cx"/>
+                                            <constraint firstItem="B5n-VR-KKy" firstAttribute="height" secondItem="IbM-xB-ulM" secondAttribute="height" id="w4L-ct-8Mb"/>
+                                            <constraint firstItem="B5n-VR-KKy" firstAttribute="centerX" secondItem="IbM-xB-ulM" secondAttribute="centerX" id="xcF-z2-7kB"/>
+                                        </constraints>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s6m-Dr-gmQ">
-                                        <rect key="frame" x="0.0" y="586.66666666666663" width="359" height="103.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="552" width="359" height="138"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="LvD-9d-0Qo" firstAttribute="height" secondItem="c7h-Hv-cHO" secondAttribute="height" multiplier="0.07" id="2cJ-Da-HWg"/>
                                     <constraint firstItem="D97-R8-Orj" firstAttribute="height" secondItem="c7h-Hv-cHO" secondAttribute="height" multiplier="0.06" id="7ZY-Vp-ycM"/>
                                     <constraint firstItem="vCb-zK-wxa" firstAttribute="height" secondItem="c7h-Hv-cHO" secondAttribute="height" multiplier="0.06" id="8jV-sS-kxI"/>
                                     <constraint firstItem="IQc-48-Jkw" firstAttribute="height" secondItem="c7h-Hv-cHO" secondAttribute="height" multiplier="0.06" id="90W-of-aRb"/>
-                                    <constraint firstItem="s6m-Dr-gmQ" firstAttribute="height" secondItem="c7h-Hv-cHO" secondAttribute="height" multiplier="0.15" id="Aan-kb-zfv"/>
+                                    <constraint firstItem="s6m-Dr-gmQ" firstAttribute="height" secondItem="c7h-Hv-cHO" secondAttribute="height" multiplier="0.2" id="Aan-kb-zfv"/>
                                     <constraint firstItem="MLt-DY-qm8" firstAttribute="height" secondItem="c7h-Hv-cHO" secondAttribute="height" multiplier="0.06" id="DVv-t8-mbY"/>
-                                    <constraint firstItem="fRs-bg-5UJ" firstAttribute="height" secondItem="c7h-Hv-cHO" secondAttribute="height" multiplier="0.1" id="Edx-jb-Hj4"/>
-                                    <constraint firstItem="xxY-u5-4V1" firstAttribute="height" secondItem="c7h-Hv-cHO" secondAttribute="height" multiplier="0.07" id="atM-24-wh1"/>
+                                    <constraint firstItem="ojq-MH-BJB" firstAttribute="height" secondItem="c7h-Hv-cHO" secondAttribute="height" multiplier="0.05" id="RiO-yC-re5"/>
+                                    <constraint firstItem="IbM-xB-ulM" firstAttribute="height" secondItem="c7h-Hv-cHO" secondAttribute="height" multiplier="0.07" id="SFx-r5-wb4"/>
+                                    <constraint firstItem="xxY-u5-4V1" firstAttribute="height" secondItem="c7h-Hv-cHO" secondAttribute="height" multiplier="0.05" id="atM-24-wh1"/>
                                     <constraint firstItem="orV-PB-Mrk" firstAttribute="height" secondItem="c7h-Hv-cHO" secondAttribute="height" multiplier="0.1" id="f32-t8-HmZ"/>
-                                    <constraint firstItem="B5n-VR-KKy" firstAttribute="height" secondItem="c7h-Hv-cHO" secondAttribute="height" multiplier="0.1" id="pwZ-Md-ivA"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -345,8 +375,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="Схема Ейткена" largeTitleDisplayMode="always" id="Mew-Ma-gtt"/>
                     <connections>
+                        <outlet property="chartButton" destination="B5n-VR-KKy" id="JkP-Fd-Ko9"/>
                         <outlet property="interpolationDegreeTextField" destination="uly-Jj-I5O" id="1iJ-EK-lQ3"/>
                         <outlet property="segmentControl" destination="MLt-DY-qm8" id="TeO-xL-HWm"/>
+                        <outlet property="tableButton" destination="fRs-bg-5UJ" id="geK-RZ-eJJ"/>
                         <outlet property="xTextField" destination="Fsg-d6-fVY" id="wxN-EN-7hl"/>
                     </connections>
                 </viewController>
@@ -420,35 +452,35 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="n" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZ0-S9-kmJ">
-                                                    <rect key="frame" x="37.666666666666657" y="11.333333333333334" width="131" height="21.333333333333329"/>
+                                                    <rect key="frame" x="46.999999999999993" y="11.333333333333334" width="112.33333333333331" height="21.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="delta" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yEb-ky-Mbk">
-                                                    <rect key="frame" x="159.33333333333331" y="11.333333333333336" width="131.33333333333331" height="21"/>
+                                                    <rect key="frame" x="150" y="11.333333333333336" width="112.66666666666669" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="k" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAv-RF-fuS">
-                                                    <rect key="frame" x="300" y="11.333333333333336" width="75" height="21"/>
+                                                    <rect key="frame" x="262.66666666666669" y="11.333333333333336" width="112.33333333333331" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="aAv-RF-fuS" firstAttribute="width" secondItem="RtB-Do-wGq" secondAttribute="width" multiplier="0.2" id="L3V-S2-37J"/>
-                                                <constraint firstItem="yEb-ky-Mbk" firstAttribute="width" secondItem="RtB-Do-wGq" secondAttribute="width" multiplier="0.35" id="N7v-x3-DQd"/>
-                                                <constraint firstItem="yEb-ky-Mbk" firstAttribute="centerX" secondItem="RtB-Do-wGq" secondAttribute="centerX" multiplier="1.2" id="NcY-LE-iKb"/>
+                                                <constraint firstItem="aAv-RF-fuS" firstAttribute="width" secondItem="RtB-Do-wGq" secondAttribute="width" multiplier="0.3" id="L3V-S2-37J"/>
+                                                <constraint firstItem="yEb-ky-Mbk" firstAttribute="width" secondItem="RtB-Do-wGq" secondAttribute="width" multiplier="0.3" id="N7v-x3-DQd"/>
+                                                <constraint firstItem="yEb-ky-Mbk" firstAttribute="centerX" secondItem="RtB-Do-wGq" secondAttribute="centerX" multiplier="1.1" id="NcY-LE-iKb"/>
                                                 <constraint firstItem="eZ0-S9-kmJ" firstAttribute="centerY" secondItem="RtB-Do-wGq" secondAttribute="centerY" id="PoM-bg-w1E"/>
-                                                <constraint firstItem="aAv-RF-fuS" firstAttribute="centerX" secondItem="RtB-Do-wGq" secondAttribute="centerX" multiplier="1.8" id="TxW-vf-ccv"/>
+                                                <constraint firstItem="aAv-RF-fuS" firstAttribute="centerX" secondItem="RtB-Do-wGq" secondAttribute="centerX" multiplier="1.7" id="TxW-vf-ccv"/>
                                                 <constraint firstItem="eZ0-S9-kmJ" firstAttribute="centerX" secondItem="RtB-Do-wGq" secondAttribute="centerX" multiplier="0.55" id="a8U-kT-bMA"/>
                                                 <constraint firstItem="k9Q-qs-Zu8" firstAttribute="centerY" secondItem="RtB-Do-wGq" secondAttribute="centerY" id="fRE-VR-i5m"/>
                                                 <constraint firstItem="aAv-RF-fuS" firstAttribute="centerY" secondItem="RtB-Do-wGq" secondAttribute="centerY" id="fcP-rn-HgQ"/>
                                                 <constraint firstItem="yEb-ky-Mbk" firstAttribute="centerY" secondItem="RtB-Do-wGq" secondAttribute="centerY" id="gMN-Rg-dqw"/>
-                                                <constraint firstItem="eZ0-S9-kmJ" firstAttribute="width" secondItem="RtB-Do-wGq" secondAttribute="width" multiplier="0.35" id="qmf-Zw-r1q"/>
+                                                <constraint firstItem="eZ0-S9-kmJ" firstAttribute="width" secondItem="RtB-Do-wGq" secondAttribute="width" multiplier="0.3" id="qmf-Zw-r1q"/>
                                                 <constraint firstItem="k9Q-qs-Zu8" firstAttribute="width" secondItem="RtB-Do-wGq" secondAttribute="width" multiplier="0.1" id="rgz-ap-Fvi"/>
                                                 <constraint firstItem="k9Q-qs-Zu8" firstAttribute="centerX" secondItem="RtB-Do-wGq" secondAttribute="centerX" multiplier="0.1" id="w0Z-JO-mB9"/>
                                             </constraints>

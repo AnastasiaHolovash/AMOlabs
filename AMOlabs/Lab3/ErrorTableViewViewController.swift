@@ -11,11 +11,6 @@ import UIKit
 class ErrorTableViewViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var errorTableview: UITableView!
-//    @IBOutlet weak var errorTableViewCell: UITableViewCell!
-//    @IBOutlet weak var nLabel: UILabel!
-//    @IBOutlet weak var errorLabel: UILabel!
-//    @IBOutlet weak var differenceLabel: UILabel!
-//    @IBOutlet weak var coefficientLabel: UILabel!
     
     var numbers: [Int] = []
     var interpolationError: [Double] = []
@@ -23,27 +18,37 @@ class ErrorTableViewViewController: UIViewController, UITableViewDataSource, UIT
     var interpolatedAndExactDifference: [Double] = []
     /// the refinement coefficient of the interpolated value
     var refinementCoefficient: [Double] = []
+    var x: Double = 0.5
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Оцінка похибки для х = \(x)"
         errorTableview.delegate = self
         errorTableview.dataSource = self
 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return numbers.count
+        return numbers.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = errorTableview.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ErrorTableViewCell
+        if indexPath.row == 0 {
+            cell.nLabel.text = "n"
+            cell.errorLabel.text = "∆n"
+            cell.differenceLabel.text = "∆exact n"
+            cell.coefficientLabel.text = "k"
+        } else {
+            cell.nLabel.text = String(numbers[indexPath.row - 1])
+//            cell.errorLabel.text = String(format: "%.5f", interpolationError[indexPath.row - 1])
+            cell.errorLabel.attributedText = interpolationError[indexPath.row - 1].scientificFormatted
+            cell.differenceLabel.attributedText = interpolatedAndExactDifference[indexPath.row - 1].scientificFormatted
+            cell.coefficientLabel.attributedText = refinementCoefficient[indexPath.row - 1].scientificFormatted
+        }
         
-        cell.nLabel.text = String(numbers[indexPath.row])
-        cell.errorLabel.text = String(interpolationError[indexPath.row])
-        cell.differenceLabel.text = String(interpolatedAndExactDifference[indexPath.row])
-        cell.coefficientLabel.text = String(refinementCoefficient[indexPath.row])
 
         return cell
     }

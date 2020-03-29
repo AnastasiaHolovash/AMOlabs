@@ -46,8 +46,8 @@
             filePath = "AMOlabs/Lab3/Lab3Task1ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
             landmarkName = "differenceModuleChack2(array:n:)"
             landmarkType = "7">
          </BreakpointContent>

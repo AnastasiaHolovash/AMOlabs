@@ -14,6 +14,8 @@ class Lab3Task1ViewController: UIViewController {
     @IBOutlet weak var interpolationDegreeTextField: UITextField!
     @IBOutlet weak var xTextField: UITextField!
     @IBOutlet weak var segmentControl: UISegmentedControl!
+    @IBOutlet weak var tableButton: UIButton!
+    @IBOutlet weak var chartButton: UIButton!
     
     
     let a = 0.0
@@ -24,19 +26,9 @@ class Lab3Task1ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        valueOfTheGivenFunction(10)
-//        let x = [-1.0, 0.0, 2.0, 4.0,  6.0, 9.0]
-//        let y = [-2.0, 3.0, 1.0, 7.0, -1.0, 5.0]
-//        aitken(x: x, y: y, x0: -0.5)
-//        var interYArray: [Double] = []
-//        for i in valueOfTheGivenFunction(10).x {
-//            interYArray.append(aitken(x: valueOfTheGivenFunction(10).x, y: valueOfTheGivenFunction(10).y, x0: i + 0.5))
-//        }
-//         aitken2(x: x, y: y, x0: -0.5)
-//        print("DIFERENS")
-//        for i in 0..<valueOfTheGivenFunction(10).y.count {
-//            print(valueOfTheGivenFunction(10).y[i] - interYArray[i])
-//        }
+        tableButton.layer.cornerRadius = CGFloat((Double(tableButton.frame.height) ) / 2.5)
+        chartButton.layer.cornerRadius = CGFloat((Double(chartButton.frame.height) ) / 2.5)
+
     }
     
     
@@ -88,6 +80,7 @@ class Lab3Task1ViewController: UIViewController {
         return p[0]
     }
     
+    //MARK: -lagrang
     func lagrang(arrayX: [Double], arrayY: [Double], t: Double) -> Double {
         var z: Double = 0
         
@@ -195,14 +188,60 @@ class Lab3Task1ViewController: UIViewController {
     @IBAction func didChangeSegmentControl(_ sender: UISegmentedControl) {
         
     }
+    func findYFromFunc(_ x: Double) -> Double {
+        var y: Double = 0.0
+        switch segmentControl.selectedSegmentIndex {
+            case 0:
+                y = exp(sin(x))
+            case 1:
+                y = sin(x)
+            default:
+                y = 0.0
+        }
+        return y
+    }
+    
+    func dataForTable(maxDegreeOfInterpolation: Int, x: Double) -> (interpolasionErrorArray: [Double], differenceArray: [Double], interpolasionKArray: [Double]) {
+        var interpolasionArrayForX: [Double] = []
+        var differenceArray: [Double] = []
+        let yExactValue = findYFromFunc(x)
+        var interpolasionErrorArray: [Double] = []
+        var interpolasionKArray: [Double] = []
+        
+        for n in 1...maxDegreeOfInterpolation + 1 {
+            let (valuesX, valuesY) = valueOfTheGivenFunction(n)
+//            let interpolasionValueForX = aitken(x: valuesX, y: valuesY, x0: x)
+            
+            interpolasionArrayForX.append(aitken(x: valuesX, y: valuesY, x0: x))
+            differenceArray.append(interpolasionArrayForX[n - 1] - yExactValue)
+            
+            if n > 1 {
+                interpolasionErrorArray.append(interpolasionArrayForX[n - 2] - interpolasionArrayForX[n - 1])
+                interpolasionKArray.append(1 - differenceArray[n - 2] / interpolasionErrorArray[n - 2])
+            }
+        }
+        return (interpolasionErrorArray, differenceArray, interpolasionKArray)
+    }
     
     @IBAction func didPressShowTable(_ sender: UIButton) {
+        degreeOfInterpolation = Int(interpolationDegreeTextField.text ?? "10") ?? 10
+        guard let x = Double(xTextField.text ?? "0.5") else { return }
+        
+        let (interpolasionErrorArray, differenceArray, interpolasionKArray) = dataForTable(maxDegreeOfInterpolation: degreeOfInterpolation, x: x)
+        var numbers: [Int] = []
+        for i in 1...degreeOfInterpolation {
+            numbers.append(i)
+        }
         
         guard let tableVC = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ErrorTableViewViewController") as? ErrorTableViewViewController else { return }
                     
                 DispatchQueue.main.async {
                     
-        //            chartVC.nSegue = self.sliderValue
+                    tableVC.numbers = numbers
+                    tableVC.interpolationError = interpolasionErrorArray
+                    tableVC.interpolatedAndExactDifference = differenceArray
+                    tableVC.refinementCoefficient = interpolasionKArray
+                    tableVC.x = x
 
                     self.navigationController?.pushViewController(tableVC, animated: true)
                 }
@@ -212,14 +251,8 @@ class Lab3Task1ViewController: UIViewController {
     @IBAction func didPressShowChart(_ sender: UIButton) {
         degreeOfInterpolation = Int(interpolationDegreeTextField.text ?? "10") ?? 10
         
-//        let formulaValuesXY = valueOfTheGivenFunction(10)
         let chartValuesXY = valueOfTheGivenFunction(1000)
-//        let arrayX = valuesXY.x
-//        let arrayY = valuesXY.y
-//        var interYArray: [Double] = []
-//        for i in chartValuesXY.x {
-//            interYArray.append(aitken(x: formulaValuesXY.x, y:formulaValuesXY.y, x0: i))
-//        }
+
         let interpolationYArray = interpolationArray(chartValuesX: chartValuesXY.x, count: degreeOfInterpolation)
         let interpolationErrorYArray = interpolationArray(chartValuesX: chartValuesXY.x, count: degreeOfInterpolation + 1)
         let interpolationErrorErrorYArray = interpolationArray(chartValuesX: chartValuesXY.x, count: degreeOfInterpolation + 2)

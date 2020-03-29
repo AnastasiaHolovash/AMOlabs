@@ -23,9 +23,9 @@ class Lab3ChartViewController: UIViewController, ChartViewDelegate {
         super.viewDidLoad()
 
         if funcsion {
-            self.title = "Графік e^(sin(x))"
+            self.title = "f(x) = e^(sin(x))"
         } else {
-            self.title = "Графік sin(x)"
+            self.title = "f(x) = sin(x)"
         }
         
         setupChartView()
@@ -48,21 +48,6 @@ class Lab3ChartViewController: UIViewController, ChartViewDelegate {
         
         let leftAxis = chartView.leftAxis
         leftAxis.removeAllLimitLines()
-
-//        if funcsion {
-//            /// Maximum of y
-//            leftAxis.axisMaximum = 3.5
-//
-//            /// Minimum of y
-//            leftAxis.axisMinimum = -0.5
-//        } else {
-//            /// Maximum of y
-//            leftAxis.axisMaximum = 1.1
-//
-//            /// Minimum of y
-//            leftAxis.axisMinimum = -1.1
-//        }
-        
         
         leftAxis.gridLineDashLengths = [3, 1]
         leftAxis.drawLimitLinesBehindDataEnabled = true
@@ -88,21 +73,6 @@ class Lab3ChartViewController: UIViewController, ChartViewDelegate {
         let leftAxis = chartView2.leftAxis
         leftAxis.removeAllLimitLines()
         
-//        if funcsion {
-//            /// Maximum of y
-//            leftAxis.axisMaximum = 0.035
-//            
-//            /// Minimum of y
-//            leftAxis.axisMinimum = -0.025
-//        } else {
-//            /// Maximum of y
-//            leftAxis.axisMaximum = 0.000005
-//            
-//            /// Minimum of y
-//            leftAxis.axisMinimum = -0.000005
-//        }
-        
-        
         leftAxis.gridLineDashLengths = [3, 1]
         leftAxis.drawLimitLinesBehindDataEnabled = true
         
@@ -124,7 +94,7 @@ class Lab3ChartViewController: UIViewController, ChartViewDelegate {
         guard let valuesMistake = valuesSegueMistake else { return }
         
         // First line (teoretical)
-        let set1 = LineChartDataSet(entries: valuesTeor, label: "Інтерполяція")
+        let set1 = LineChartDataSet(entries: valuesTeor, label: "Інтерпольовані значення")
         set1.drawIconsEnabled = false
         set1.setColor(.black)
         set1.setCircleColor(.black)
@@ -134,7 +104,7 @@ class Lab3ChartViewController: UIViewController, ChartViewDelegate {
         set1.mode = .cubicBezier
 
         // Second line (test)
-        let set2 = LineChartDataSet(entries: valuesTest, label: "Функція")
+        let set2 = LineChartDataSet(entries: valuesTest, label: "Точні значення f(x)")
         set2.drawIconsEnabled = false
         set2.setColor(.blue)
         set2.setCircleColor(.blue)
@@ -145,7 +115,7 @@ class Lab3ChartViewController: UIViewController, ChartViewDelegate {
         set2.mode = .cubicBezier
         
         
-        let set3 = LineChartDataSet(entries: valuesMistake, label: "Похибка")
+        let set3 = LineChartDataSet(entries: valuesMistake, label: "Похибка інтерполяції ∆n")
         set3.drawIconsEnabled = false
         set3.setColor(.red)
         set3.setCircleColor(.red)
