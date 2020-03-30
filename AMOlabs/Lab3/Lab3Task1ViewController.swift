@@ -9,13 +9,17 @@
 import UIKit
 import Charts
 
-class Lab3Task1ViewController: UIViewController {
+class Lab3Task1ViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var interpolationDegreeTextField: UITextField!
     @IBOutlet weak var xTextField: UITextField!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var tableButton: UIButton!
     @IBOutlet weak var chartButton: UIButton!
+    @IBOutlet weak var yLabel: UILabel!
+    @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var errorOfErrorLabel: UILabel!
+    @IBOutlet weak var blurLabel: UILabel!
     
     
     let a = 0.0
@@ -26,11 +30,27 @@ class Lab3Task1ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableButton.layer.cornerRadius = CGFloat((Double(tableButton.frame.height) ) / 2.6)
-        chartButton.layer.cornerRadius = CGFloat((Double(chartButton.frame.height) ) / 2.5)
+        tableButton.layer.cornerRadius = CGFloat((Double(tableButton.frame.height) ) / 2.3)
+        chartButton.layer.cornerRadius = CGFloat((Double(chartButton.frame.height) ) / 2.3)
 
+        xTextField.delegate = self
+        interpolationDegreeTextField.delegate = self
     }
     
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        xTextField.resignFirstResponder()
+        interpolationDegreeTextField.resignFirstResponder()
+        
+        let x = Double(xTextField.text ?? "0.5") ?? 0.5
+        let dataForLabels = dataForOneX(x: x)
+        yLabel.text = "y ≈ \(dataForLabels.y)"
+        errorLabel.text = "Похибка = \(dataForLabels.error)"
+        errorOfErrorLabel.text = "Похибка похибки = \(dataForLabels.errorOfError)"
+        blurLabel.text = "Відносна розмитість похибки = \(dataForLabels.errorBlur)"
+        
+        return true
+    }
     
     func interpolationArray(chartValuesX: [Double], count: Int) -> [Double] {
         let formulaValuesXY = valueOfTheGivenFunction(count, segmentControl: segmentControl)
@@ -65,7 +85,6 @@ class Lab3Task1ViewController: UIViewController {
         
         for n in 1...maxDegreeOfInterpolation + 1 {
             let (valuesX, valuesY) = valueOfTheGivenFunction(n, segmentControl: segmentControl)
-//            let interpolasionValueForX = aitken(x: valuesX, y: valuesY, x0: x)
             
             interpolasionArrayForX.append(aitken(x: valuesX, y: valuesY, x0: x))
             differenceArray.append(interpolasionArrayForX[n - 1] - yExactValue)
@@ -103,6 +122,17 @@ class Lab3Task1ViewController: UIViewController {
         
     }
     
+    func dataForOneX(x: Double) -> (y: Double, error: Double, errorOfError: Double, errorBlur: Double) {
+        degreeOfInterpolation = Int(interpolationDegreeTextField.text ?? "10") ?? 10
+        let y = interpolationArray(chartValuesX: [x], count: degreeOfInterpolation)[0]
+        let interpolationPlusOne = interpolationArray(chartValuesX: [x], count: degreeOfInterpolation + 1)[0]
+        let interpolationPlusTwo = interpolationArray(chartValuesX: [x], count: degreeOfInterpolation + 2)[0]
+        let error = y - interpolationPlusOne
+        let errorOfError = interpolationPlusOne - interpolationPlusTwo
+        let errorBlur = abs(errorOfError / error)
+        return (y, error, errorOfError, errorBlur)
+    }
+    
     @IBAction func didPressShowChart(_ sender: UIButton) {
         degreeOfInterpolation = Int(interpolationDegreeTextField.text ?? "10") ?? 10
         
@@ -110,11 +140,7 @@ class Lab3Task1ViewController: UIViewController {
 
         let interpolationYArray = interpolationArray(chartValuesX: chartValuesXY.x, count: degreeOfInterpolation)
         let interpolationErrorYArray = interpolationArray(chartValuesX: chartValuesXY.x, count: degreeOfInterpolation + 1)
-        let interpolationErrorErrorYArray = interpolationArray(chartValuesX: chartValuesXY.x, count: degreeOfInterpolation + 2)
-
-        let estimationOfInterpolationError = difference(interpolationYArray, interpolationErrorYArray)
-        let estimationOfInterpolationErrorEstimation = difference(interpolationErrorYArray, interpolationErrorErrorYArray)
-        let blurErrorArray = blurError(estimationOfInterpolationErrorEstimation, estimationOfInterpolationError)
+        let estimationOfInterpolationError = difference(interpolationYArray, interpolationErrorYArray).map { -1 * log10(abs($0)) }
         
         let values = dataForChart(arrayX: chartValuesXY.x, arrayY: chartValuesXY.y)
         let values2 = dataForChart(arrayX: chartValuesXY.x, arrayY: interpolationYArray)
@@ -129,7 +155,6 @@ class Lab3Task1ViewController: UIViewController {
         default:
             mathFunc = true
         }
-    
         
         guard let chartVC = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "Lab3ChartViewController") as? Lab3ChartViewController else { return }
                 

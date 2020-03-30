@@ -96,17 +96,18 @@ func differenceModuleChack2 (array: [Double], n: Int) -> Double {
 }
 
 
-func blurError(_ estimationOfInterpolationErrorEstimation: [Double], _ estimationOfInterpolationError: [Double]) -> [Double] {
-    var result: [Double] = []
-    for i in 0..<estimationOfInterpolationErrorEstimation.count {
-        result.append(estimationOfInterpolationErrorEstimation[i] / estimationOfInterpolationError[i])
-    }
-    return result
-}
+//func blurError(_ estimationOfInterpolationErrorEstimation: [Double], _ estimationOfInterpolationError: [Double]) -> [Double] {
+//    var result: [Double] = []
+//    for i in 0..<estimationOfInterpolationErrorEstimation.count {
+//        result.append(estimationOfInterpolationErrorEstimation[i] / estimationOfInterpolationError[i])
+//    }
+//    return result
+//}
 
 func difference(_ first: [Double], _ second: [Double]) -> [Double] {
     var result: [Double] = []
     for i in 0..<first.count {
+//        let elem 
         result.append(first[i] - second[i])
     }
     return result
@@ -115,8 +116,10 @@ func difference(_ first: [Double], _ second: [Double]) -> [Double] {
 func dataForChart(arrayX: [Double], arrayY: [Double]) -> [ChartDataEntry] {
     var values: [ChartDataEntry] = []
     for i in 0..<arrayX.count {
-        let charData = ChartDataEntry(x: arrayX[i], y: arrayY[i])
-        values.append(charData)
+        if !arrayY[i].isInfinite {
+            let charData = ChartDataEntry(x: arrayX[i], y: arrayY[i])
+            values.append(charData)
+        }
     }
     return values
 }

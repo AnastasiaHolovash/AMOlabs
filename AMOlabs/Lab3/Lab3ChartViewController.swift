@@ -55,6 +55,7 @@ class Lab3ChartViewController: UIViewController, ChartViewDelegate {
         chartView.rightAxis.enabled = false
         
         chartView.legend.form = .line
+        chartView.legend.font = NSUIFont(name: "Helvetica", size: 15) ?? NSUIFont()
         
         chartView.animate(xAxisDuration: 2.5)
     }
@@ -79,6 +80,7 @@ class Lab3ChartViewController: UIViewController, ChartViewDelegate {
         chartView2.rightAxis.enabled = false
         
         chartView2.legend.form = .line
+        chartView2.legend.font = NSUIFont(name: "Helvetica", size: 15) ?? NSUIFont()
         
         chartView2.animate(xAxisDuration: 2.5)
     }
