@@ -9,6 +9,18 @@
 import UIKit
 import Charts
 
+/**
+Визначає координати точок (x, y)
+- Parameters:
+   - accuracy: точність
+   - segmentControl: елемент що передає дані про те, яка із функцій вибрана sin(x) чи e^sin(x)
+   - a: ліва межа проміжку, на якому відбувається інтерполяція ф-ї
+   - b: права межа проміжку, на якому відбувається інтерполяція ф-ї
+- Returns:
+ 
+           -  масив іксів
+           - масив ігриків
+*/
 func valueOfTheGivenFunction(_ accuracy : Int, segmentControl:UISegmentedControl, a: Double = 0.0, b: Double = 5.0) -> (x: [Double], y: [Double]){
     let h: Double = Double((b - a) / Double(accuracy))
     /// Масив значень іксів
@@ -33,6 +45,14 @@ func valueOfTheGivenFunction(_ accuracy : Int, segmentControl:UISegmentedControl
     return (x, y)
 }
 
+/**
+Визначає значення заданої функції вточці використовуючи схему Ейткена
+- Parameters:
+   - x: масив іксів
+   - y: масив ігриків
+   - x0: точка, у якій потрібно знайти наближене значення функції
+- Returns: значення функції в точці x0
+*/
 func aitken(x: [Double], y: [Double], x0: Double) -> Double {
     let n = x.count
     var p: [Double] = []
@@ -53,25 +73,6 @@ func aitken(x: [Double], y: [Double], x0: Double) -> Double {
     return p[0]
 }
 
-//MARK: -lagrang
-func lagrang(arrayX: [Double], arrayY: [Double], t: Double) -> Double {
-    var z: Double = 0
-    
-    for j in 0..<arrayY.count {
-        var p1: Double = 1
-        var p2: Double = 1
-        
-        for i in 0..<arrayX.count {
-            if i != j {
-                p1 = p1 * (t - arrayX[i])
-                p2 = p2 * (arrayX[j] - arrayX[i])
-            }
-        }
-        z = z + (arrayY[j] * (p1 / p2))
-    }
-        
-    return z
-}
 
 func opositArray(x: [Double]) -> [Double] {
     var newX: [Double] = []
@@ -81,33 +82,38 @@ func opositArray(x: [Double]) -> [Double] {
     return newX
 }
 
-func differenceModuleChack2 (array: [Double], n: Int) -> Double {
-    var dif = [array.max() ?? 0.0]
-    var index = 0
-    
-    for i in 0..<(array.count - n) {
-        if i != 0 && i != 1 {
-            dif.append(abs(array[i] - array[i - 1]))
-            if dif[i - 1] >= dif[i - 2] { break }
-            index = i
-        }
-    }
-    return array[index]
-}
-
-
-//func blurError(_ estimationOfInterpolationErrorEstimation: [Double], _ estimationOfInterpolationError: [Double]) -> [Double] {
-//    var result: [Double] = []
-//    for i in 0..<estimationOfInterpolationErrorEstimation.count {
-//        result.append(estimationOfInterpolationErrorEstimation[i] / estimationOfInterpolationError[i])
+//func differenceModuleChack2 (array: [Double], n: Int) -> Double {
+//    var dif = [array.max() ?? 0.0]
+//    var index = 0
+//
+//    for i in 0..<(array.count - n) {
+//        if i != 0 && i != 1 {
+//            dif.append(abs(array[i] - array[i - 1]))
+//            if dif[i - 1] >= dif[i - 2] { break }
+//            index = i
+//        }
 //    }
-//    return result
+//    return array[index]
 //}
+
+/**
+Визначає відносну розмитість оцінки похибки
+- Parameters:
+   - estimationOfInterpolationErrorEstimation: є оцінкою похибки оцінки похибки
+   - estimationOfInterpolationError: є оцінкою похибки інтерполяції
+- Returns: відносну розмитість оцінки похибки
+*/
+func blurError(_ estimationOfInterpolationErrorEstimation: [Double], _ estimationOfInterpolationError: [Double]) -> [Double] {
+    var result: [Double] = []
+    for i in 0..<estimationOfInterpolationErrorEstimation.count {
+        result.append(estimationOfInterpolationErrorEstimation[i] / estimationOfInterpolationError[i])
+    }
+    return result
+}
 
 func difference(_ first: [Double], _ second: [Double]) -> [Double] {
     var result: [Double] = []
     for i in 0..<first.count {
-//        let elem 
         result.append(first[i] - second[i])
     }
     return result

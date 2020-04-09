@@ -36,7 +36,7 @@ extension Numeric {
         guard let font: UIFont = UIFont(name: "Helvetica", size:18) else { return NSMutableAttributedString() }
         guard let fontUpper: UIFont = UIFont(name: "Helvetica", size:12) else { return NSMutableAttributedString() }
         
-        if stringFromFormatter == "NaN" || stringFromFormatter == "+∞" {
+        if stringFromFormatter == "NaN" || stringFromFormatter == "+∞" || stringFromFormatter == "-∞" {
             return NSMutableAttributedString(string: String(splitedString[0]), attributes: [.font: font])
         } else {
             let attributedPart1: NSMutableAttributedString = NSMutableAttributedString(string: String(splitedString[0]), attributes: [.font: font])

@@ -117,7 +117,7 @@ class Lab3ChartViewController: UIViewController, ChartViewDelegate {
         set2.mode = .cubicBezier
         
         
-        let set3 = LineChartDataSet(entries: valuesMistake, label: "Похибка інтерполяції ∆n")
+        let set3 = LineChartDataSet(entries: valuesMistake, label: "Похибка інтерполяції -lg∆n")
         set3.drawIconsEnabled = false
         set3.setColor(.red)
         set3.setCircleColor(.red)

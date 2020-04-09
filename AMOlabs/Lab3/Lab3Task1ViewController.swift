@@ -20,6 +20,10 @@ class Lab3Task1ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var errorOfErrorLabel: UILabel!
     @IBOutlet weak var blurLabel: UILabel!
+    @IBOutlet weak var resultYLabel: UILabel!
+    @IBOutlet weak var resultErrorLabel: UILabel!
+    @IBOutlet weak var resultErrorErrorLabel: UILabel!
+    @IBOutlet weak var resultBlurLabel: UILabel!
     
     
     let a = 0.0
@@ -35,6 +39,9 @@ class Lab3Task1ViewController: UIViewController, UITextFieldDelegate {
 
         xTextField.delegate = self
         interpolationDegreeTextField.delegate = self
+        
+        showResultLabels()
+        
     }
     
     
@@ -42,16 +49,30 @@ class Lab3Task1ViewController: UIViewController, UITextFieldDelegate {
         xTextField.resignFirstResponder()
         interpolationDegreeTextField.resignFirstResponder()
         
-        let x = Double(xTextField.text ?? "0.5") ?? 0.5
-        let dataForLabels = dataForOneX(x: x)
-        yLabel.text = "y ≈ \(dataForLabels.y)"
-        errorLabel.text = "Похибка = \(dataForLabels.error)"
-        errorOfErrorLabel.text = "Похибка похибки = \(dataForLabels.errorOfError)"
-        blurLabel.text = "Відносна розмитість похибки = \(dataForLabels.errorBlur)"
-        
+        showResultLabels()
         return true
     }
     
+    func showResultLabels() {
+        
+        let x = Double(xTextField.text ?? "0.5") ?? 0.5
+        let dataForLabels = dataForOneX(x: x)
+        yLabel.attributedText = dataForLabels.y.scientificFormatted
+        errorLabel.attributedText = dataForLabels.error.scientificFormatted
+        errorOfErrorLabel.attributedText = dataForLabels.errorOfError.scientificFormatted
+        blurLabel.attributedText = dataForLabels.errorBlur.scientificFormatted
+        
+    }
+    
+    
+    /**
+    Створю масив інтерпольваних значень ф-ї для відображення графіка інтерполяції
+     Формування результату відбувається за схемою Ейткена (aitken())
+    - Parameters:
+       - chartValuesX: масив хначень іксів
+       - count: точність з якою будуть вирахувані інтерпольовані значення
+    - Returns: масив інтерпольованих значеннь
+    */
     func interpolationArray(chartValuesX: [Double], count: Int) -> [Double] {
         let formulaValuesXY = valueOfTheGivenFunction(count, segmentControl: segmentControl)
         var result: [Double] = []
@@ -61,7 +82,7 @@ class Lab3Task1ViewController: UIViewController, UITextFieldDelegate {
         return result
     }
 
-
+    /// Знаходить значення фунціх f(x) в залежность від того, яка функція була обрана користувачем
     func findYFromFunc(_ x: Double) -> Double {
         var y: Double = 0.0
         switch segmentControl.selectedSegmentIndex {
@@ -75,7 +96,18 @@ class Lab3Task1ViewController: UIViewController, UITextFieldDelegate {
         return y
     }
     
+    /**
+    Формує дані для таблиці
+    - Parameters:
+       - maxDegreeOfInterpolation: максимальний порядок інтерполяції
+       - x: значення ікса
     
+    - Returns:
+     
+             - масив з похибками інтерполяції різних порядків
+             - масив різниць між інтерпольованими і точними значеннями
+             - масив з коефіцієнтами уточнення інтерпольованіх значень
+    */
     func dataForTable(maxDegreeOfInterpolation: Int, x: Double) -> (interpolasionErrorArray: [Double], differenceArray: [Double], interpolasionKArray: [Double]) {
         var interpolasionArrayForX: [Double] = []
         var differenceArray: [Double] = []
@@ -96,6 +128,29 @@ class Lab3Task1ViewController: UIViewController, UITextFieldDelegate {
         }
         return (interpolasionErrorArray, differenceArray, interpolasionKArray)
     }
+    
+    /**
+     Обчислює похибки для заданого х
+    - Parameters:
+       - x: значення ікса
+    - Returns:
+     
+             - наближене значення ф-ї
+             - оцінку похибки інтерполяції
+             - оцінку похибки оцінки похибки
+             - відносну розмитість оцінки похибки
+    */
+    func dataForOneX(x: Double) -> (y: Double, error: Double, errorOfError: Double, errorBlur: Double) {
+        degreeOfInterpolation = Int(interpolationDegreeTextField.text ?? "10") ?? 10
+        let y = interpolationArray(chartValuesX: [x], count: degreeOfInterpolation)[0]
+        let interpolationPlusOne = interpolationArray(chartValuesX: [x], count: degreeOfInterpolation + 1)[0]
+        let interpolationPlusTwo = interpolationArray(chartValuesX: [x], count: degreeOfInterpolation + 2)[0]
+        let error = y - interpolationPlusOne
+        let errorOfError = interpolationPlusOne - interpolationPlusTwo
+        let errorBlur = abs(errorOfError / error)
+        return (y, error, errorOfError, errorBlur)
+    }
+    
     
     @IBAction func didPressShowTable(_ sender: UIButton) {
         degreeOfInterpolation = Int(interpolationDegreeTextField.text ?? "10") ?? 10
@@ -122,16 +177,6 @@ class Lab3Task1ViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    func dataForOneX(x: Double) -> (y: Double, error: Double, errorOfError: Double, errorBlur: Double) {
-        degreeOfInterpolation = Int(interpolationDegreeTextField.text ?? "10") ?? 10
-        let y = interpolationArray(chartValuesX: [x], count: degreeOfInterpolation)[0]
-        let interpolationPlusOne = interpolationArray(chartValuesX: [x], count: degreeOfInterpolation + 1)[0]
-        let interpolationPlusTwo = interpolationArray(chartValuesX: [x], count: degreeOfInterpolation + 2)[0]
-        let error = y - interpolationPlusOne
-        let errorOfError = interpolationPlusOne - interpolationPlusTwo
-        let errorBlur = abs(errorOfError / error)
-        return (y, error, errorOfError, errorBlur)
-    }
     
     @IBAction func didPressShowChart(_ sender: UIButton) {
         degreeOfInterpolation = Int(interpolationDegreeTextField.text ?? "10") ?? 10
@@ -164,7 +209,6 @@ class Lab3Task1ViewController: UIViewController, UITextFieldDelegate {
                 chartVC.valuesSegue2 = values2
                 chartVC.valuesSegueMistake = valuesMistake
                 chartVC.funcsion = mathFunc
-    //            chartVC.nSegue = self.sliderValue
 
                 self.navigationController?.pushViewController(chartVC, animated: true)
             }
