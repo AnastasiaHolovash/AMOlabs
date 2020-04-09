@@ -51,7 +51,6 @@ class Lab4ViewController: UIViewController, UITextFieldDelegate {
         let epsilon = Double(accuracyTextField.text ?? "0") ?? 0.0
         
         let (x, y) = halfSplitMethod(pointA: pointA, pointB: pointB, epsilon: epsilon)
-//        let y = halfSplitMethod(pointA: pointA, pointB: pointB, epsilon: epsilon)
         if (x != 0) && (y != 0) {
             xResultLabel.attributedText = x.scientificFormatted
             yResultLabel.attributedText = y.scientificFormatted
@@ -92,16 +91,14 @@ class Lab4ViewController: UIViewController, UITextFieldDelegate {
         var c = 0.0
 
         if findY(a) * findY(b) > 0 {
-//            print("Нема розв'язку!")
             return (0, 0)
+            
         } else if findY(a) == 0 {
-//            print("x = \(a)")
-//            print("y = \(findY(a))")
             return (a, findY(a))
+            
         } else if findY(b) == 0 {
-//            print("x = \(b)")
-//            print("y = \(findY(b))")
             return (b, findY(b))
+            
         } else {
             c = (a + b) / 2
             
@@ -114,12 +111,7 @@ class Lab4ViewController: UIViewController, UITextFieldDelegate {
                 }
                 c = (a + b) / 2
                 
-//                print("[\(a), \(b)]")
-//                print(c)
             }
-            
-//            print("x = \(c)")
-//            print("y = \(findY(c))")
             return (c, findY(c))
         }
     }
