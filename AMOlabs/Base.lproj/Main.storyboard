@@ -712,16 +712,31 @@
             </objects>
             <point key="canvasLocation" x="174" y="2284"/>
         </scene>
-        <!--View Controller-->
+        <!--Lab4 Chart View Controller-->
         <scene sceneID="9Ir-Of-hbd">
             <objects>
-                <viewController id="ZFl-9d-aGx" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Lab4ChartViewController" id="ZFl-9d-aGx" customClass="Lab4ChartViewController" customModule="AMOlabs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vjC-Te-bQB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5sp-wP-z6I" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="MRA-Yz-rp7" firstAttribute="bottom" secondItem="5sp-wP-z6I" secondAttribute="bottom" id="2dB-nB-ko5"/>
+                            <constraint firstItem="MRA-Yz-rp7" firstAttribute="trailing" secondItem="5sp-wP-z6I" secondAttribute="trailing" id="CYI-Q1-6hs"/>
+                            <constraint firstItem="5sp-wP-z6I" firstAttribute="leading" secondItem="MRA-Yz-rp7" secondAttribute="leading" id="aSk-FP-BQX"/>
+                            <constraint firstItem="5sp-wP-z6I" firstAttribute="top" secondItem="MRA-Yz-rp7" secondAttribute="top" id="qqp-GU-CpU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="MRA-Yz-rp7"/>
                     </view>
+                    <connections>
+                        <outlet property="chartView" destination="5sp-wP-z6I" id="5BN-jc-pH4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GwB-7v-den" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

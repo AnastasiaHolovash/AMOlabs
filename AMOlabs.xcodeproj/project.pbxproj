@@ -30,6 +30,7 @@
 		5D95AA432403F0E300DC716C /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D95AA422403F0E300DC716C /* ImageViewController.swift */; };
 		5D95AA4724042E2200DC716C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D95AA4624042E2200DC716C /* Extensions.swift */; };
 		5DA67D49240724A00084F66F /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5DD2C3D224410B9400499997 /* Lab4ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD2C3D124410B9400499997 /* Lab4ChartViewController.swift */; };
 		5DFF1D112407C75200A0F65B /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFF1D102407C75200A0F65B /* WriteViewController.swift */; };
 		5DFF1D132409163300A0F65B /* arrayA.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5DFF1D122409163300A0F65B /* arrayA.txt */; };
 		5DFF1D152409168F00A0F65B /* arrayB.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5DFF1D142409168F00A0F65B /* arrayB.txt */; };
@@ -77,6 +78,7 @@
 		5D95AA422403F0E300DC716C /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		5D95AA4624042E2200DC716C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5DA67D45240724780084F66F /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DD2C3D124410B9400499997 /* Lab4ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Lab4ChartViewController.swift; path = /Users/anastasia/AMOlabs/AMOlabs/Lab4/Lab4ChartViewController.swift; sourceTree = "<absolute>"; };
 		5DFF1D102407C75200A0F65B /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
 		5DFF1D122409163300A0F65B /* arrayA.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = arrayA.txt; sourceTree = "<group>"; };
 		5DFF1D142409168F00A0F65B /* arrayB.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = arrayB.txt; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				5D8F1F9B243F754D00144263 /* Lab4ViewController.swift */,
+				5DD2C3D124410B9400499997 /* Lab4ChartViewController.swift */,
 			);
 			path = Lab4;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				5D63EC132431082000A6A1DA /* FormattingExtensions.swift in Sources */,
 				5D95AA3D23FEAC8A00DC716C /* Lab1Task2ViewController.swift in Sources */,
 				5D83C7A8242BEF5800FC7EAC /* Lab3Task1ViewController.swift in Sources */,
+				5DD2C3D224410B9400499997 /* Lab4ChartViewController.swift in Sources */,
 				5D95AA3F23FFDB7F00DC716C /* Lab1Task3ViewController.swift in Sources */,
 				5D8C6A9D24068A0C0051639A /* Functions.swift in Sources */,
 				5D8C6A9F240715A60051639A /* ChartImageViewController.swift in Sources */,

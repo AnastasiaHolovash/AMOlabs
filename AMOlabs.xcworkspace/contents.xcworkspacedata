@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/anastasia/AMOlabs/AMOlabs/Lab4/Lab4ChartViewController.swift">
+   </FileRef>
+   <FileRef
       location = "group:AMOlabs.xcodeproj">
    </FileRef>
    <FileRef
