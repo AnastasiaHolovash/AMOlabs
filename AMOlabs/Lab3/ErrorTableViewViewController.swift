@@ -43,7 +43,6 @@ class ErrorTableViewViewController: UIViewController, UITableViewDataSource, UIT
             cell.coefficientLabel.text = "k"
         } else {
             cell.nLabel.text = String(numbers[indexPath.row - 1])
-//            cell.errorLabel.text = String(format: "%.5f", interpolationError[indexPath.row - 1])
             cell.errorLabel.attributedText = interpolationError[indexPath.row - 1].scientificFormatted
             cell.differenceLabel.attributedText = interpolatedAndExactDifference[indexPath.row - 1].scientificFormatted
             cell.coefficientLabel.attributedText = refinementCoefficient[indexPath.row - 1].scientificFormatted
