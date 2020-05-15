@@ -35,6 +35,13 @@ class Lab5ViewController: UIViewController {
     @IBOutlet weak var b3: UITextField!
     @IBOutlet weak var b4: UITextField!
     
+    @IBOutlet weak var x12Label: UILabel!
+    @IBOutlet weak var x13Label: UILabel!
+    @IBOutlet weak var x22Label: UILabel!
+    @IBOutlet weak var x23Label: UILabel!
+    @IBOutlet weak var x33Label: UILabel!
+    
+    
     /// for hiding
     @IBOutlet weak var stackView3: UIStackView!
     @IBOutlet weak var stackView4: UIStackView!
@@ -42,19 +49,18 @@ class Lab5ViewController: UIViewController {
     @IBOutlet weak var view14: UIView!
     @IBOutlet weak var view23: UIView!
     @IBOutlet weak var view24: UIView!
-    @IBOutlet weak var view33: UIView!
     @IBOutlet weak var view34: UIView!
-    @IBOutlet weak var view43: UIView!
-    @IBOutlet weak var view44: UIView!
+
     
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var redView: UIView!
     @IBOutlet weak var calculateButton: UIButton!
     @IBOutlet weak var steper: UIStepper!
+    @IBOutlet weak var epsilon: UITextField!
     
     var stepperValue = 3
     var enteredDataArray: [[Double]] = []
-    let epsilon = 0.01
+    var epsilonValue = 0.01
     var resultString: String = ""
     
     
@@ -68,12 +74,11 @@ class Lab5ViewController: UIViewController {
         view14.isHidden = true
         view24.isHidden = true
         view34.isHidden = true
+        x13Label.text = "x3="
+        x23Label.text = "x3="
+        x33Label.text = "x3="
         setMyVariant()
-//        stackView3.isHidden = true
-//        view13.isHidden = true
-//        view23.isHidden = true
-            
-        
+                    
     }
     
     func makeAnArray(sise: Int) {
@@ -120,11 +125,9 @@ class Lab5ViewController: UIViewController {
             enteredDataString[4].append(contentsOf: " = \(b4.text ?? "0.0")")
         }
         resultString = enteredDataString.joined(separator:"\n")
-        print(resultString)
-
     }
     
-    func makeStringArray(n: Int) {
+    func makeStringArray(n: Int, text: Bool) {
         var enteredDataString: [String] = []
         for i in 0..<n {
             enteredDataString.append("")
@@ -132,16 +135,45 @@ class Lab5ViewController: UIViewController {
                 if j > 0 {
                     enteredDataString[i].append(contentsOf: " + ")
                 }
-                enteredDataString[i].append(contentsOf: "\(enteredDataArray[i][j].rounded(digits: 3))x\(j+1)")
+                enteredDataString[i].append(contentsOf: "\(enteredDataArray[i][j].rounded(digits: 4))x\(j+1)")
             }
-            enteredDataString[i].append(contentsOf: " + \(enteredDataArray[i][n].rounded(digits: 3)) = 0")
+            enteredDataString[i].append(contentsOf: " + \(enteredDataArray[i][n].rounded(digits: 4)) = 0")
         }
-        print(enteredDataString.joined(separator:"\n"))
-        resultString.append(contentsOf: "\n\nПриводимо дану систему до вигляду, зручного для релаксації:\n")
+        if text {
+            resultString.append(contentsOf: "\n\nПриводимо дану систему до вигляду, зручного для релаксації:\n")
+        }
         resultString.append(contentsOf: enteredDataString.joined(separator:"\n"))
     }
     
+    func checkDiagonalDominance() {
+        if segmentControl.selectedSegmentIndex == 0 {
+            enteredDataArray = [[ 0.9996, 0.0012, -0.0003, -5.9988],
+                                [-0.0005, 1.0017,  0.0005, -4.9969],
+                                [-0.0007,  0.002,  0.9996, -1.9977]]
+            resultString.append(contentsOf: """
+                    \n\nПеретворимо матрицю на матрицю з діаголальним домінуванням
+                    Виконаємо перетворення системи Ах = B
+                    до вигляду x - ax - b = 0, де
+                    a = A * 𝛆
+                    b = (A^-1 - 𝛆) * B
+
+                                -12  -1  -8
+                    A^-1 =   -9  -1   6
+                                  -7  -1   5
+                    
+                           0.0004  -0.00012   0.0003
+                    𝛆 =  0.0005  -0.00017  -0.0005
+                           0.0007      -0.002   0.0003
+
+                    Отримаємо:\n
+                    """)
+            makeStringArray(n: 3, text: false)
+        }
+    }
+    
+    /// Реалізація методу релаксації
     func relaxation() {
+        checkDiagonalDominance()
         let n = enteredDataArray.count
         /// Перетворити систему до вигляду, зручного для релаксації
         for i in 0..<n {
@@ -156,22 +188,11 @@ class Lab5ViewController: UIViewController {
                 }
             }
         }
-        
-        for i in 0..<n {
-            print(enteredDataArray[i])
-        }
-        makeStringArray(n: n)
+        makeStringArray(n: n, text: true)
         
         /// Масив наближень
         /// Початкові наближення коренів - нульові значення
         var approximation: [[Double]] = Array(repeating: [0.0], count: n)
-        
-
-        /// Обчислення наближення
-        let r = 0.0
-    //    var rArray: [Double] = []
-        
-        /// Для кожного рядка
         var maxR = 0.0
         var nMaxR = 0
         resultString.append(contentsOf: "\n\nВибираючи як початкові наближення коренів нульові значення, знаходимо відповідні їм нев'язки:")
@@ -180,10 +201,10 @@ class Lab5ViewController: UIViewController {
             /// Для кожного елемента
             for j in 0..<n {
                 if i != j {
-                    ri += r * enteredDataArray[i][j]
+                    /// Початкові наближення коренів - нульові значення
+                    ri += 0.0 * enteredDataArray[i][j]
                 }
             }
-            
             ri += enteredDataArray[i][n]
             approximation[i].append(ri)
             resultString.append(contentsOf: "\nR\(i+1) = \(ri.rounded(digits: 3))")
@@ -191,27 +212,29 @@ class Lab5ViewController: UIViewController {
                 maxR = ri
                 nMaxR = i
             }
-    //            rArray.append(ri)
-    //            print(r)
         }
-        resultString.append(contentsOf: "\nМаксимальна нев'язка: R\(nMaxR+1) = \(maxR.rounded(digits: 3))")
+        resultString.append(contentsOf: "\nМаксимальна нев'язка: R\(nMaxR+1) = |\(maxR.rounded(digits: 5))|")
+        /// Значення для перевіки умови закінцення наступного циклу
         var check: Double = 0.0
+        /// Лічильник кількості циклів
         var k = 0
+        /// Повторюється поки задана точність не буде досягнута
         repeat {
+            /// Виклик ф-ї, що знаходить наступні наближення коренів
             check = findNextApproximation(n, &nMaxR, &approximation, k)
-//            print("check = \(check)")
-//            for i in 0..<n {
-//                print(approximation[i])
-//            }
             k += 1
-    //    } while k < 5
-        } while abs(check) > epsilon
+            
+            if abs(check) > epsilonValue {
+                resultString.append(contentsOf: "\n|\(check.rounded(digits: 5))| > 𝛆 = \(epsilonValue)")
+            } else {
+                resultString.append(contentsOf: "\n|\(check.rounded(digits: 5))| < 𝛆 = \(epsilonValue)")
+            }
+        } while abs(check) > epsilonValue
         
-        print("ANSVER")
-        resultString.append(contentsOf: "\n\nРезультат:")
+        resultString.append(contentsOf: "\n\nЗадана точність була досягнута.\nРезультат:")
         var answer: [Double] = []
+        /// Обчислення результату
         for i in 0..<n {
-
             var x = 0.0
             for j in stride(from: approximation[i].count - 1, to: 0, by: -1) {
                 if approximation[i][j] == 0.0 {
@@ -221,37 +244,45 @@ class Lab5ViewController: UIViewController {
             answer.append(x)
             resultString.append(contentsOf: "\nx\(i+1) = \(x.rounded(digits: 5))")
         }
-        print(answer)
-        
     }
 
+    /**
+    Знаходить наступні наближення коренів
+    - Parameters:
+       - n: розмір матриці
+       - nMaxR: індех максимальної нев'язки
+       - approximation: масив наближень
+       - iterationN: номер ітерації
+    - Returns: найбільшу за модулем нев'язку
+    */
     func findNextApproximation(_ n: Int, _ nMaxR: inout Int, _ approximation: inout [[Double]], _ iterationN: Int) -> Double {
-//        print("______\(iterationN)______")
-//        print("nMaxR = \(nMaxR)")
-        resultString.append(contentsOf: "\n\nІтерація №\(iterationN)\nЗначення нев'язок:")
+        resultString.append(contentsOf: "\n\nІтерація №\(iterationN + 1)\nЗначення нев'язок:")
         var newMaxR = 0.0
         var newNMaxR = 0
+        var epsilonCheck = 0.0
         for i in 0..<n {
             var newR = 0.0
-            
+            /// обчиснення нев'язки
             if i != nMaxR {
                 newR = approximation[i][iterationN + 1] + enteredDataArray[i][nMaxR] * approximation[nMaxR][iterationN + 1]
-//                print("newR = \(approximation[i][iterationN + 1]) + \(enteredDataArray[i][nMaxR]) * \(approximation[nMaxR][iterationN + 1]) = \(newR)")
-                resultString.append(contentsOf: "\nR\(i+1) = \(approximation[i][iterationN + 1].rounded(digits: 3)) + \(enteredDataArray[i][nMaxR].rounded(digits: 3)) * \(approximation[nMaxR][iterationN + 1].rounded(digits: 3)) = \(newR.rounded(digits: 3))")
+                resultString.append(contentsOf: "\nR\(i+1) = \(approximation[i][iterationN + 1].rounded(digits: 3)) + \(enteredDataArray[i][nMaxR].rounded(digits: 3)) * \(approximation[nMaxR][iterationN + 1].rounded(digits: 3)) = \(newR.rounded(digits: 5))")
             } else {
                 newR = 0.0
                 resultString.append(contentsOf: "\nR\(i+1) = \(newR)")
             }
             approximation[i].append(newR)
-    //        if abs(newMaxR) < abs(newR) {
-            if newMaxR < newR {
+            /// пошук найбільшої нев'язки
+            if abs(newMaxR) <= abs(newR) {
                 newMaxR = newR
                 newNMaxR = i
             }
+            if abs(epsilonCheck) < abs(newR) {
+                epsilonCheck = newR
+            }
         }
-        resultString.append(contentsOf: "\nМаксимальна нев'язка: R\(newNMaxR+1) = \(newMaxR.rounded(digits: 3))")
+        resultString.append(contentsOf: "\nМаксимальна нев'язка: R\(newNMaxR+1) = |\(newMaxR.rounded(digits: 5))|")
         nMaxR = newNMaxR
-        return newMaxR
+        return epsilonCheck
     }
     
     
@@ -261,27 +292,38 @@ class Lab5ViewController: UIViewController {
             view14.isHidden = true
             view24.isHidden = true
             view34.isHidden = true
+            x13Label.text = "x3="
+            x23Label.text = "x3="
+            x33Label.text = "x3="
             
             if sender.value < 3 {
                 stackView3.isHidden = true
                 view13.isHidden = true
                 view23.isHidden = true
+                x12Label.text = "x2="
+                x22Label.text = "x2="
             }
         }
         if sender.value > 2 {
             stackView3.isHidden = false
             view13.isHidden = false
             view23.isHidden = false
+            x12Label.text = "x2+"
+            x22Label.text = "x2+"
             
             if sender.value > 3 {
                 stackView4.isHidden = false
                 view14.isHidden = false
                 view24.isHidden = false
                 view34.isHidden = false
+                x13Label.text = "x3+"
+                x23Label.text = "x3+"
+                x33Label.text = "x3+"
             }
         }
         stepperValue = Int(sender.value)
     }
+    
     
     func setMyVariant() {
         steper.value = 3
@@ -302,6 +344,7 @@ class Lab5ViewController: UIViewController {
         b2.text = "-2"
         b3.text = "-7"
     }
+    
     
     @IBAction func didChangeSegmentControl(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
@@ -332,8 +375,10 @@ class Lab5ViewController: UIViewController {
         }
     }
     
+    
     @IBAction func didPressCalculateButton(_ sender: UIButton) {
         makeAnArray(sise: stepperValue)
+        epsilonValue = Double(epsilon.text ?? "0.01") ?? 0.01
         relaxation()
         
         guard let resultVC = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "Lab5ResultViewController") as? Lab5ResultViewController else { return }
@@ -341,8 +386,7 @@ class Lab5ViewController: UIViewController {
         let navigationC = UINavigationController()
         navigationC.viewControllers = [resultVC]
         present(navigationC, animated: true, completion: nil)
-        
-//        print(resultString)
+        print(resultString)
     }
     
 }

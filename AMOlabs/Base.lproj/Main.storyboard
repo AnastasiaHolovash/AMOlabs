@@ -1251,7 +1251,7 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qtD-dd-anI">
                                 <rect key="frame" x="112.66666666666669" y="622.33333333333337" width="150" height="38.333333333333371"/>
-                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Розв'язати"/>
@@ -1260,29 +1260,55 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XLP-bt-pVr">
-                                <rect key="frame" x="72" y="397.33333333333331" width="231" height="32"/>
+                                <rect key="frame" x="72" y="441" width="231" height="32"/>
                                 <color key="backgroundColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="0.45269691779726029" colorSpace="custom" customColorSpace="sRGB"/>
                                 <segments>
                                     <segment title="За раріантом"/>
                                     <segment title="Довільна"/>
                                 </segments>
-                                <color key="selectedSegmentTintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="selectedSegmentTintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="didChangeSegmentControl:" destination="5bt-WL-dda" eventType="valueChanged" id="dO2-KJ-QU7"/>
                                 </connections>
                             </segmentedControl>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gg7-4N-UdQ">
+                                <rect key="frame" x="3" y="372.66666666666669" width="369.33333333333331" height="34"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Точність: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SGP-Tx-RHc" userLabel="Точність: 𝛆 =">
+                                        <rect key="frame" x="0.0" y="0.0" width="92.333333333333329" height="34"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 𝛆 = " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cbb-vp-E9C">
+                                        <rect key="frame" x="92.333333333333329" y="0.0" width="55.333333333333329" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="17M-eL-sfO">
+                                        <rect key="frame" x="147.66666666666669" y="0.0" width="221.66666666666669" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="17M-eL-sfO" firstAttribute="width" secondItem="gg7-4N-UdQ" secondAttribute="width" multiplier="0.6" id="NUg-V3-0OL"/>
+                                    <constraint firstItem="SGP-Tx-RHc" firstAttribute="width" secondItem="gg7-4N-UdQ" secondAttribute="width" multiplier="0.25" id="fzh-0s-8Jp"/>
+                                    <constraint firstItem="Cbb-vp-E9C" firstAttribute="width" secondItem="gg7-4N-UdQ" secondAttribute="width" multiplier="0.15" id="wkN-bO-jPM"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="GZv-fO-BjL" firstAttribute="centerX" secondItem="387-iU-Ox9" secondAttribute="centerX" id="4gu-PJ-3RY"/>
-                            <constraint firstItem="XLP-bt-pVr" firstAttribute="leading" secondItem="387-iU-Ox9" secondAttribute="leading" constant="72" id="4nW-4D-cOE"/>
-                            <constraint firstItem="XLP-bt-pVr" firstAttribute="centerX" secondItem="qtD-dd-anI" secondAttribute="centerX" id="5hV-Pm-Z0b"/>
+                            <constraint firstItem="gg7-4N-UdQ" firstAttribute="centerY" secondItem="387-iU-Ox9" secondAttribute="centerY" multiplier="0.9" id="CfY-sl-8wW"/>
                             <constraint firstItem="qLP-s7-abG" firstAttribute="height" secondItem="387-iU-Ox9" secondAttribute="height" multiplier="0.3" id="Ggz-dc-6an"/>
                             <constraint firstItem="qLP-s7-abG" firstAttribute="centerX" secondItem="387-iU-Ox9" secondAttribute="centerX" id="HiR-TJ-Pvm"/>
                             <constraint firstItem="X1R-me-KhW" firstAttribute="centerX" secondItem="387-iU-Ox9" secondAttribute="centerX" id="Hlf-vf-Uvh"/>
-                            <constraint firstItem="XLP-bt-pVr" firstAttribute="top" secondItem="X1R-me-KhW" secondAttribute="bottom" constant="62.666666666666686" id="JCc-EU-NH8"/>
                             <constraint firstItem="qLP-s7-abG" firstAttribute="width" secondItem="387-iU-Ox9" secondAttribute="width" id="JMH-vY-Chl"/>
                             <constraint firstItem="qtD-dd-anI" firstAttribute="centerX" secondItem="387-iU-Ox9" secondAttribute="centerX" id="Jmj-wC-Vb4"/>
+                            <constraint firstItem="gg7-4N-UdQ" firstAttribute="centerX" secondItem="387-iU-Ox9" secondAttribute="centerX" id="NdV-AU-nbZ"/>
                             <constraint firstItem="GZv-fO-BjL" firstAttribute="width" secondItem="X1R-me-KhW" secondAttribute="width" id="O1x-MR-LTt"/>
                             <constraint firstItem="X1R-me-KhW" firstAttribute="width" secondItem="387-iU-Ox9" secondAttribute="width" multiplier="0.99" id="QY7-4h-ncq"/>
                             <constraint firstItem="qtD-dd-anI" firstAttribute="centerY" secondItem="387-iU-Ox9" secondAttribute="centerY" constant="208.5" id="TRc-QU-iXv"/>
@@ -1290,9 +1316,13 @@
                             <constraint firstItem="X1R-me-KhW" firstAttribute="centerY" secondItem="387-iU-Ox9" secondAttribute="centerY" multiplier="0.55" id="atT-1k-1Xw"/>
                             <constraint firstItem="qLP-s7-abG" firstAttribute="centerY" secondItem="387-iU-Ox9" secondAttribute="centerY" multiplier="0.555" id="d6l-QG-9Es"/>
                             <constraint firstItem="qtD-dd-anI" firstAttribute="height" secondItem="387-iU-Ox9" secondAttribute="height" multiplier="0.0558583" id="dU2-oI-dEP"/>
+                            <constraint firstItem="XLP-bt-pVr" firstAttribute="centerX" secondItem="387-iU-Ox9" secondAttribute="centerX" id="lHy-KC-jlV"/>
                             <constraint firstItem="qtD-dd-anI" firstAttribute="width" secondItem="387-iU-Ox9" secondAttribute="width" multiplier="0.4" id="pSM-GU-v6h"/>
                             <constraint firstItem="X1R-me-KhW" firstAttribute="height" secondItem="387-iU-Ox9" secondAttribute="height" multiplier="0.28" id="q0e-4f-vg5"/>
+                            <constraint firstItem="XLP-bt-pVr" firstAttribute="width" secondItem="ERk-JX-J2l" secondAttribute="width" multiplier="0.616" id="sXB-xX-Cci"/>
                             <constraint firstItem="GZv-fO-BjL" firstAttribute="centerY" secondItem="387-iU-Ox9" secondAttribute="centerY" multiplier="0.27" id="sx6-rr-Y5l"/>
+                            <constraint firstItem="XLP-bt-pVr" firstAttribute="height" secondItem="ERk-JX-J2l" secondAttribute="height" multiplier="0.0381773" id="xNd-Dc-0cm"/>
+                            <constraint firstItem="XLP-bt-pVr" firstAttribute="centerY" secondItem="387-iU-Ox9" secondAttribute="centerY" constant="23.5" id="xtX-AG-99z"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="387-iU-Ox9"/>
                     </view>
@@ -1303,6 +1333,7 @@
                         <outlet property="b3" destination="jK7-R8-KzW" id="mcb-Vi-bZd"/>
                         <outlet property="b4" destination="e4T-aO-0GG" id="Jy3-0E-Ve9"/>
                         <outlet property="calculateButton" destination="qtD-dd-anI" id="DYS-Po-EMD"/>
+                        <outlet property="epsilon" destination="17M-eL-sfO" id="uiw-gW-lLs"/>
                         <outlet property="redView" destination="qLP-s7-abG" id="u6S-7G-f4e"/>
                         <outlet property="segmentControl" destination="XLP-bt-pVr" id="Ccr-PM-zVK"/>
                         <outlet property="stackView3" destination="gZY-7v-JwE" id="sOc-lm-oAk"/>
@@ -1312,21 +1343,23 @@
                         <outlet property="view14" destination="upe-VT-lpk" id="OuP-7U-8EW"/>
                         <outlet property="view23" destination="nh8-W5-39F" id="Glp-JP-1Oe"/>
                         <outlet property="view24" destination="pRa-Wz-ljx" id="aaz-Yz-Oev"/>
-                        <outlet property="view33" destination="eHG-v9-t4C" id="ZYt-F9-rc9"/>
                         <outlet property="view34" destination="J1a-vT-ki6" id="4Ct-9X-JtF"/>
-                        <outlet property="view43" destination="tkZ-9V-6SP" id="7ZO-Dj-qTn"/>
-                        <outlet property="view44" destination="r16-6z-8Kk" id="Gr6-c3-bBi"/>
                         <outlet property="x11" destination="3Qj-b7-AH3" id="JPL-Qy-6jP"/>
                         <outlet property="x12" destination="ry1-C1-vtq" id="mOT-PX-11e"/>
+                        <outlet property="x12Label" destination="rvh-ic-hgy" id="ftc-Wp-Pn9"/>
                         <outlet property="x13" destination="zat-kC-fh2" id="dDf-57-TEh"/>
+                        <outlet property="x13Label" destination="w6h-Wk-Lrq" id="xgu-hH-fxI"/>
                         <outlet property="x14" destination="P3B-90-2Wj" id="xmA-fn-plo"/>
                         <outlet property="x21" destination="Jog-ua-gT3" id="qhX-Fw-Ou6"/>
                         <outlet property="x22" destination="sxy-6Q-Cak" id="zdR-By-pKK"/>
+                        <outlet property="x22Label" destination="ogF-oA-Cy8" id="FVP-dG-wh0"/>
                         <outlet property="x23" destination="lUq-2B-Aq5" id="6OV-Mj-jbd"/>
+                        <outlet property="x23Label" destination="CNn-0v-mFS" id="vhG-kb-Yl1"/>
                         <outlet property="x24" destination="Sar-yu-E3i" id="KjW-jz-Ozc"/>
                         <outlet property="x31" destination="3Aa-XZ-pMT" id="tVm-Ls-Zc0"/>
                         <outlet property="x32" destination="isz-jJ-8E5" id="kRS-86-nlG"/>
                         <outlet property="x33" destination="noQ-8e-Ahg" id="Cdv-EF-0ff"/>
+                        <outlet property="x33Label" destination="zLU-c7-ALM" id="6cQ-Q5-pXM"/>
                         <outlet property="x34" destination="X8V-WJ-KlA" id="pUw-a1-AOJ"/>
                         <outlet property="x41" destination="6xf-df-PCS" id="58x-f9-fY2"/>
                         <outlet property="x42" destination="5zn-ln-YVI" id="4dQ-sC-IKD"/>
@@ -1687,7 +1720,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Сортування Хоара" id="aBT-QR-iml">
                         <barButtonItem key="rightBarButtonItem" id="DGQ-eG-h5o">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="65K-KU-yKm">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="65K-KU-yKm">
                                 <rect key="frame" x="276" y="5.6666666666666679" width="83" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1990,7 +2023,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Завдання №1" id="n1M-x0-j91">
                         <barButtonItem key="rightBarButtonItem" id="GHt-TL-EQG">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ztl-MD-vE3">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ztl-MD-vE3">
                                 <rect key="frame" x="276" y="5.6666666666666679" width="83" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -2201,7 +2234,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Завдання №2" id="B4H-tx-ufy">
                         <barButtonItem key="rightBarButtonItem" id="imb-fU-Enh">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aR7-Ld-Fux">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aR7-Ld-Fux">
                                 <rect key="frame" x="276" y="5.6666666666666679" width="83" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -2423,7 +2456,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Завдання №3" id="DDM-cs-AOp">
                         <barButtonItem key="rightBarButtonItem" id="sef-av-U4h">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Xn6-Sd-S2V">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Xn6-Sd-S2V">
                                 <rect key="frame" x="276" y="5.6666666666666679" width="83" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
